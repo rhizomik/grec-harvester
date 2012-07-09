@@ -15,7 +15,7 @@ import argparse
 
 
 def get_soup_from_url(url):
-    return BeautifulSoup(urllib2.urlopen(url))
+    return BeautifulSoup(urllib2.urlopen(url), "lxml")
 
 
 def get_links_in_row(soup, rowname):
