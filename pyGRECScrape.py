@@ -3,9 +3,8 @@
 
 from bs4 import BeautifulSoup
 
-import rdflib
-from rdflib import Graph, term, namespace
-#from rdflib.Graph import Graph
+from rdflib.graph import ConjunctiveGraph, Resource
+from rdflib import Namespace, URIRef, Literal, RDF
 
 import urllib2
 import simplejson
@@ -15,7 +14,20 @@ import argparse
 
 #GLOBAL VARS
 pub_base_uri = "http://www.diei.udl.cat"
+uri_person = "person"
+uri_pub = "pub"
+swrc = "http://swrc.ontoware.org/ontology#"
+DC = Namespace("http://purl.org/dc/elements/1.1/")
+RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+UNI = Namespace("http://swrc.ontoware.org/ontology#")
 #END GLOBAL VARS
+
+# Create the RDF Graph
+graph = ConjunctiveGraph()
+graph.bind("dc", DC)
+graph.bind("rdfs", RDFS)
+graph.bind("uni", UNI)
+# End create RDF Graph
 
 def clean_pub_title(string):
     '''Clear de name for the dictionary keys'''
@@ -65,12 +77,19 @@ def normalize_author_name(name):
             else:
                 name = name +match.group(1)[0]+"."+match.group(1)[1]+"."
     elif re.match("^(\S+)\s+(:?(\S+)\s+)?(\S+)", name): # Process authornames like John Smith or Ralph Albert Frost
-        match = re.match("^(\S+)\s+(:?(\S+)\s+)?(\S+)", name)
-        name = match.group(1)[0]+"."
-        if None not in match.groups():
-            name = match.group(4)+", "+name+match.group(3)[0]+"."
+        if name.isupper():
+            name_list = name.split(" ")
+            if len(name_list) == 4 or len(name_list) == 5:
+                return name_list[2].capitalize()+", "+name_list[0][0]+"."+name_list[1][0]+"."
+            if len(name_list) == 3 or len(name_list) == 2:
+                return name_list[1].capitalize()+", "+name_list[0][0]
         else:
-            name = match.group(4)+", "+name
+            match = re.match("^(\S+)\s+(:?(\S+)\s+)?(\S+)", name)
+            name = match.group(1)[0]+"."
+            if None not in match.groups():
+                name = match.group(4)+", "+name+match.group(3)[0]+"."
+            else:
+                name = match.group(4)+", "+name
     return name
 
 def normalize_author_list(string):
@@ -87,7 +106,6 @@ def normalize_author_list(string):
     final_author_list = []
     for name in author_list:
         final_author_list.append(normalize_author_name(name))
-    print final_author_list
     return final_author_list
 
 
@@ -97,7 +115,7 @@ def get_pubs_quantity(soup):
     posts_per_page = len(soup.find_all("p", {"class": "llista"}))
     max_pages = int(math.ceil(max_posts / float(posts_per_page)))
     return max_posts, max_pages
-
+    
 
 def get_publication_dict(pub_url):
     ''''''
@@ -107,14 +125,17 @@ def get_publication_dict(pub_url):
     for item in pub_data:
         if len(item.next_element) < 25:
             titol = clean_pub_title(item.next_element)
-            try:
-                if titol == "Autors":
-                    pub_dict[titol] = normalize_author_list(item.next_element.next_element.strip())
-                else:
-                    pub_dict[titol] = item.next_element.next_element.strip()
-            except Error:
-                print (Error)
-                pub_dict[titol] = None
+            if titol == "Autors" or titol == "Autor" or titol == "Director":
+                pub_dict[titol] = normalize_author_list(item.next_element.next_element.strip())
+            elif titol == "Nom" or clean_pub_title(item.next_element) == "Organisme":
+                pub_dict[titol] = item.parent.parent.find_all("td")[1].next_element
+            elif titol == "Equip investigador":
+                res_list = [normalize_author_name(nom.next_element.strip()) for nom in item.parent.find_all("a", {"class":"inves"})]
+                pub_dict["Investigador principal"] = res_list[0]
+                pub_dict["Investigadors secundaris"] = res_list[1:]
+            else:
+                pub_dict[titol] = item.next_element.next_element.strip()
+    print pub_dict
     return pub_dict
 
 
