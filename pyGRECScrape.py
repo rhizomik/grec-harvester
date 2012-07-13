@@ -18,49 +18,81 @@ pub_base_uri = "http://www.diei.udl.cat"
 #END GLOBAL VARS
 
 def clean_pub_title(string):
+    '''Clear de name for the dictionary keys'''
     if ":" in string:
         return string.strip()[:-1]
     return string.strip()
 
 
 def clean_href(string):
+    '''Clean the javascript stuff from the given content of href property of an anchor'''
     return string.split("'")[1]
 
 
 def get_soup_from_url(url):
+    '''Return a BS4 object from a given URL'''
     return BeautifulSoup(urllib2.urlopen(url), "lxml", from_encoding="UTF8")
 
 
 def get_links_in_row(soup, rowname):
+    '''Get a list of links from a BS4 object and a row name'''
     print u"Filtering data by row name: "+ rowname
     fila_pubs = soup.find("td", text=re.compile("^"+ rowname +"$")).find_parent("tr")
     link_list = [a["href"] for a in fila_pubs.find_all("a")]
     return link_list
 
+def normalize_author_name(name):
+    # Copied and translated to python from the file PubsRDFizer.java at lines 344 to 414 from rogargon (Roberto García)
+    # https://github.com/rogargon/GRECRDFizer/blob/master/src/main/java/net/rhizomik/grecrdfizer/PubsRDFizer.java#L344
+    if re.match(".*?(\S\S+)\s+(\S\S?)(?:\s+(\S))?$", name): # Process authornames like Smith J, Doe J R or Frost RA
+        match = re.match(".*?(\S\S+)\s+(\S\S?)(?:\s+(\S))?$", name)
+        name = match.group(1)+", "
+        if None not in match.groups():
+            name = name+match.group(2)+"."+match.group(3)+"."
+        else:
+            if len(match.group(2)) == 1:
+                name = name +match.group(2)+"."
+            else:
+                name = name +match.group(2)[0]+"."+match.group(2)[1]+"."
+    elif re.match("^(\S\S?)\s+(:?(\S)\s+)?(\S\S+)", name): # Process authornames like J Smith, J R Doe or RA Frost
+        match = re.match("^(\S\S?)\s+(:?(\S)\s+)?(\S\S+)", name)
+        name = match.group(4)+", "
+        if None not in match.groups():
+            name = name+match.group(1)+"."+match.group(3)+"."
+        else:
+            if len(match.group(1)) == 1:
+                name = name +match.group(1)+"."
+            else:
+                name = name +match.group(1)[0]+"."+match.group(1)[1]+"."
+    elif re.match("^(\S+)\s+(:?(\S+)\s+)?(\S+)", name): # Process authornames like John Smith or Ralph Albert Frost
+        match = re.match("^(\S+)\s+(:?(\S+)\s+)?(\S+)", name)
+        name = match.group(1)[0]+"."
+        if None not in match.groups():
+            name = match.group(4)+", "+name+match.group(3)[0]+"."
+        else:
+            name = match.group(4)+", "+name
+    return name
 
 def normalize_author_list(string):
     if ";" in string:
         stringn = re.split(";| and | i | amb | y ", string)
     elif "," in string:
-        stringn = re.split(",| and | i | amb | y ", string)
-    author_list = [nom.strip().replace(".", " ").replace(",", " ") for nom in stringn]
-    # Copied and translated to python from the file PubsRDFizer.java at lines 344 to 414 from rogargon (Roberto García)
-    # https://github.com/rogargon/GRECRDFizer/blob/master/src/main/java/net/rhizomik/grecrdfizer/PubsRDFizer.java#L344
-    # TODO Complete this!
-    for name in author_list:
-        if re.match("(\\S\\S+)\\s+(\\S\\S?)(?:\\s+(\\S))?$", name): # Process authornames like Smith J, Doe J R or Frost RA
-            print "1st: "+ name
-        elif re.match("^(\\S\\S?)\\s+(:?(\\S)\\s+)?(\\S\\S+)", name): # Process authornames like J Smith, J R Doe or RA Frost
-            print "2nd: "+ name
-        elif re.match("^(\\S+)\\s+(:?(\\S+)\\s+)?(\\S+)", name): # Process authornames like John Smith or Ralph Albert Frost
-            print "3rd: "+ name
+        if re.match("(\S\S+)\s+(\S\S?)(?:\s+(\S))?$", string.replace(".", " ").replace(",", " ").strip()):
+            stringn = re.split(" and | amb | y ", string.replace(".", " ").replace(",", " ").strip())
         else:
-            print "cap: "+ name
-    # ENDTODO
-    return [nom.strip() for nom in stringn]
+            stringn = re.split(",| and | i | amb | y ", string)
+    else:
+        stringn = re.split(" and | amb | y ", string)
+    author_list = [nom.replace(".", " ").replace(",", " ").strip() for nom in stringn]
+    final_author_list = []
+    for name in author_list:
+        final_author_list.append(normalize_author_name(name))
+    print final_author_list
+    return final_author_list
 
 
 def get_pubs_quantity(soup):
+    '''Get the number of publications and pages in a BS4 object'''
     max_posts = int(soup.find("p", {"class": "consultac"}).text.split(":")[1].strip())
     posts_per_page = len(soup.find_all("p", {"class": "llista"}))
     max_pages = int(math.ceil(max_posts / float(posts_per_page)))
@@ -68,21 +100,21 @@ def get_pubs_quantity(soup):
 
 
 def get_publication_dict(pub_url):
+    ''''''
     pub_url = get_soup_from_url(pub_url)
     pub_data = pub_url.find_all("b")
     pub_dict = {}
-    if pub_url.a("invest") != []:
-        researchers = pub_url.a("invest")
-        #TODO Complete this!
     for item in pub_data:
-        if len(item.next_element) < 20:
+        if len(item.next_element) < 25:
+            titol = clean_pub_title(item.next_element)
             try:
-                if clean_pub_title(item.next_element) == "Autors":
-                    pub_dict[clean_pub_title(item.next_element)] = normalize_author_list(item.next_element.next_element.strip())
+                if titol == "Autors":
+                    pub_dict[titol] = normalize_author_list(item.next_element.next_element.strip())
                 else:
-                    pub_dict[clean_pub_title(item.next_element)] = item.next_element.next_element.strip()
-            except:
-                pub_dict[clean_pub_title(item.next_element)] = None
+                    pub_dict[titol] = item.next_element.next_element.strip()
+            except Error:
+                print (Error)
+                pub_dict[titol] = None
     return pub_dict
 
 
