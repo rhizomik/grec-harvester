@@ -13,7 +13,7 @@
 ### Get the data from another python script
 
 ```python
-import grec-harvester
+import grec_harvester
 
 #getting rdf data
 rdf_data = rdfize_pub_list(get_pubs_by_row_name("row_name"))
