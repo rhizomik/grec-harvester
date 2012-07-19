@@ -15,14 +15,15 @@ import unicodedata
 
 def clean_pub_title(string):
     '''Clear de name for the dictionary keys'''
-    if ":" in string:
-        return string.strip()[:-1]
-    return string.strip()
+    string = string.strip()
+    if string.endswith(":"):
+        return string[:-1]
+    return string
 
 
 def remove_accents(s):
     '''Quits accents and language specific characters of a string'''
-    return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
 
 def clean_href(string):
