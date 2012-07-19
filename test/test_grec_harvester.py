@@ -7,7 +7,7 @@ from mocker import *
 from bs4 import BeautifulSoup
 
 import sys
-sys.path.append("..")
+sys.path.append("../src")
 import grec_harvester as gh
 
 from time import time
