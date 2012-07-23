@@ -5,6 +5,8 @@ from rdflib.graph import ConjunctiveGraph
 from rdflib import Namespace, URIRef, Literal, RDF, BNode
 from rdflib.collection import Collection
 
+import unicodedata
+
 #GLOBAL VARS
 pub_base_uri = "http://www.diei.udl.cat"
 uri_person = "person"
@@ -22,6 +24,17 @@ graph.bind("dc", DC)
 graph.bind("rdfs", RDFS)
 graph.bind("uni", UNI)
 # End create RDF Graph
+
+
+def remove_accents(s):
+    '''Quits accents and language specific characters of a string'''
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+
+
+def htmlize_string(string):
+    '''Make a HTML valid string (quits spaces, commas, dots and accents or language specific characters)'''
+    return remove_accents(string.replace(",", "").replace(".", "").replace(" ", ""))
+
 
 def rdfize_output_common(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])

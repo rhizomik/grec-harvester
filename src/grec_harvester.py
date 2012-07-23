@@ -10,7 +10,6 @@ import simplejson
 import re
 import math
 import argparse
-import unicodedata
 
 
 def clean_pub_title(string):
@@ -19,11 +18,6 @@ def clean_pub_title(string):
     if string.endswith(":"):
         return string[:-1]
     return string
-
-
-def remove_accents(s):
-    '''Quits accents and language specific characters of a string'''
-    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
 
 def clean_href(string):
@@ -42,11 +36,6 @@ def get_links_in_row(soup, rowname):
     fila_pubs = soup.find("td", text=re.compile("^"+ rowname +"$")).find_parent("tr")
     link_list = [a["href"] for a in fila_pubs.find_all("a")]
     return link_list
-
-
-def htmlize_string(string):
-    '''Make a HTML valid string (quits spaces, commas, dots and accents or language specific characters)'''
-    return remove_accents(string.replace(",", "").replace(".", "").replace(" ", ""))
 
 
 def normalize_author_name(name):
