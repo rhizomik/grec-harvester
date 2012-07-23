@@ -8,13 +8,13 @@
 `$ pip install -r requirements.txt`
 
 ### Get the data from the console
-`$ python grec-harvester.py -f output_file -t {rdf | json} "row_title_1" "row_title_2" ...`
+`$ python grec_harvester/grec_harvester.py -f output_file -t {rdf | json} "row_title_1" "row_title_2" ...`
 
 ### Get the data from another python script
 
 ```python
-import grec_harvester
+from grec_harvester import grec_harvester as gh
 
 #getting rdf data
-rdf_data = rdfize_pub_list(get_pubs_by_row_name("row_name"))
+rdf_data = gh.rdfize_pub_list(get_pubs_by_row_name("row_name"))
 ```
