@@ -7,7 +7,6 @@ from mocker import *
 from bs4 import BeautifulSoup
 
 import sys
-sys.path.append("../src")
 import grec_harvester as gh
 
 from time import time
@@ -32,10 +31,10 @@ class test_clean_pub_title(TestCase):
         self.assertEqual(gh.clean_pub_title(string2), "te:st")
 
 
-class test_remove_accents(TestCase):
-    def test_common_chars(self):
-        string = u"àá ñ èé òó í ú"
-        self.assertEqual(gh.remove_accents(string), "aa n ee oo i u")
+#class test_remove_accents(TestCase):
+#    def test_common_chars(self):
+#        string = u"àá ñ èé òó í ú"
+#        self.assertEqual(gh.remove_accents(string), "aa n ee oo i u")
 
 
 class test_get_soup_from_url(TestCase):
@@ -62,10 +61,10 @@ class test_get_soup_from_url(TestCase):
         mocker.verify()
 
 
-class test_htmlize_string(TestCase):
-    def test_complete_string(self):
-        string = u"Hola, va tot correcte."
-        self.assertEquals(gh.htmlize_string(string), "Holavatotcorrecte")
+#class test_htmlize_string(TestCase):
+#    def test_complete_string(self):
+#        string = u"Hola, va tot correcte."
+#        self.assertEquals(gh.htmlize_string(string), "Holavatotcorrecte")
 
 
 class test_normalize_author_name(TestCase):
@@ -96,8 +95,17 @@ class test_normalize_author_name(TestCase):
         self.assertEquals(gh.normalize_author_name(name5), expected)
 
     def test_unexpected_string_form(self):
-        name1 = "Ponsarnau Caste D"
+        name1 = "Abla1 Bbla2 C"
         print gh.normalize_author_name(name1)
+
+        name2 = "Abla1 Bbla2 Cbla3"
+        print gh.normalize_author_name(name2)
+
+        name3 = "ABLA1 BBLA2 CBLA3 DBLA4"
+        print gh.normalize_author_name(name3)
+
+        name3 = "ABLA1 BBLA2 CBLA3"
+        print gh.normalize_author_name(name3)
 
 
 if __name__ == "__main__":
