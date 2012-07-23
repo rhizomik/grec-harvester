@@ -12,9 +12,6 @@ import grec_harvester as gh
 
 from time import time
 
-def segons():
-    print time
-
 class test_clean_pub_title(TestCase):
     def test_with_colon_at_end_of_string(self):
         string = "test:"
@@ -44,7 +41,7 @@ class test_remove_accents(TestCase):
 class test_get_soup_from_url(TestCase):
     def test_inexistent_url(self):
         try:
-            gh.get_soup_from_url("skdb")
+            gh.get_soup_from_url("invalid_url")
             self.fail("URL not valid")
         except ValueError:
             self.assertTrue(True)
@@ -97,6 +94,10 @@ class test_normalize_author_name(TestCase):
         self.assertEquals(gh.normalize_author_name(name3), expected)
         self.assertEquals(gh.normalize_author_name(name4), expected)
         self.assertEquals(gh.normalize_author_name(name5), expected)
+
+    def test_unexpected_string_form(self):
+        name1 = "Ponsarnau Caste D"
+        print gh.normalize_author_name(name1)
 
 
 if __name__ == "__main__":
