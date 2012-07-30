@@ -12,7 +12,7 @@ pub_base_uri = "http://www.diei.udl.cat"
 uri_person = "person"
 uri_pub = "pub"
 swrc = "http://swrc.ontoware.org/ontology#"
-DC = Namespace("http://purl.org/dc/elements/1.1/")
+DC = Namespace("http://purl.org/dc/terms/")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 UNI = Namespace("http://swrc.ontoware.org/ontology#")
 
@@ -46,6 +46,7 @@ def rdfize_output_common(pub_dict):
         graph.add((pub_uriref, UNI.authors, Literal("; ".join(pub_dict[u"Autors"]))))
         for autor in pub_dict[u"Autors"]:
             autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
+            graph.add((autor_uriref, RDF.type, DC.author))
             graph.add((pub_uriref, DC.author, autor_uriref))
             graph.add((autor_uriref, RDFS.label, Literal(autor)))
 
