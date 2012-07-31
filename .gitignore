@@ -3,3 +3,4 @@
 *.rdf
 *.json
 .coverage
+htmlcov/
