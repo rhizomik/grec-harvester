@@ -9,9 +9,10 @@ from bs4 import BeautifulSoup
 import sys
 import grec_harvester as gh
 
-from time import time
-
 class test_clean_pub_title(TestCase):
+    def test_returns_correct_object(self):
+        self.assertEqual(type(gh.clean_pub_title("test")), str)
+
     def test_with_colon_at_end_of_string(self):
         string = "test:"
         string2 = " test: "
@@ -31,6 +32,22 @@ class test_clean_pub_title(TestCase):
         self.assertEqual(gh.clean_pub_title(string2), "te:st")
 
 
+class test_has_one_element_character(TestCase):
+    def test_returns_correct_value(self):
+        test_list = ["test1", "test2"]
+        self.assertFalse(gh.has_one_element_character(test_list))
+
+        test_list.append("a")
+        self.assertTrue(gh.has_one_element_character(test_list))
+
+
+class test_clean_href(TestCase):
+    def test_returns_correct_value(self):
+        string = "alert('http://www.google.com');"
+        expected = "http://www.google.com"
+        self.assertEquals(gh.clean_href(string), expected)
+
+
 #class test_remove_accents(TestCase):
 #    def test_common_chars(self):
 #        string = u"àá ñ èé òó í ú"
@@ -41,9 +58,13 @@ class test_get_soup_from_url(TestCase):
     def test_inexistent_url(self):
         try:
             gh.get_soup_from_url("invalid_url")
-            self.fail("URL not valid")
+            self.fail("URL not valid") # pragma: no cover
         except ValueError:
             self.assertTrue(True)
+
+    def test_returns_correct_object(self):
+        soup = gh.get_soup_from_url("http://www.google.com")
+        self.assertEquals(type(soup), type(BeautifulSoup()))
 
     def test_existing_url(self):
         mocker = Mocker()
@@ -53,12 +74,23 @@ class test_get_soup_from_url(TestCase):
         mocker.replay()
 
         soup = gh.get_soup_from_url("http://www.google.com")
-
-        self.assertEquals(type(soup), type(BeautifulSoup()))
         self.assertEquals(soup, BeautifulSoup("<b>proves</b>", "lxml", from_encoding="UTF8"))
 
         mocker.restore()
         mocker.verify()
+
+
+class test_get_links_in_row(TestCase):
+    def test_returns_correct_value(self):
+        soup = BeautifulSoup('''<tr>
+            <td>Row name</td>
+            <td><a href="localhost">test</a></td>
+            <td><a href="localhost">test</a></td>
+            <td><a href="localhost">test</a></td>
+            </tr>''', "lxml", from_encoding="UTF8")
+
+        expected = ["localhost", "localhost", "localhost"]
+        self.assertEquals(gh.get_links_in_row(soup, "Row name"), expected)
 
 
 #class test_htmlize_string(TestCase):
@@ -68,6 +100,9 @@ class test_get_soup_from_url(TestCase):
 
 
 class test_normalize_author_name(TestCase):
+    def test_returns_correct_object(self):
+        self.assertEquals(type(gh.normalize_author_name("Test T")), str)
+
     def test_common_strings(self):
         name1 = "Lastname N"
         name2 = "N Lastname"
@@ -96,16 +131,151 @@ class test_normalize_author_name(TestCase):
 
     def test_unexpected_string_form(self):
         name1 = "Abla1 Bbla2 C"
-        print gh.normalize_author_name(name1)
+        self.assertEquals(gh.normalize_author_name(name1), "Bbla2, C.")
 
         name2 = "Abla1 Bbla2 Cbla3"
-        print gh.normalize_author_name(name2)
+        self.assertEquals(gh.normalize_author_name(name2), "Cbla3, A.B.")
 
         name3 = "ABLA1 BBLA2 CBLA3 DBLA4"
-        print gh.normalize_author_name(name3)
+        self.assertEquals(gh.normalize_author_name(name3), "Cbla3, A.B.")
 
-        name3 = "ABLA1 BBLA2 CBLA3"
-        print gh.normalize_author_name(name3)
+        name4 = "ABLA1 BBLA2 CBLA3"
+        self.assertEquals(gh.normalize_author_name(name4), "Bbla2, A.")
+
+
+class test_normalize_author_list(TestCase):
+    def setUp(self):
+        self.mocker = Mocker()
+
+    def setUpMock(self, calls):
+        self.mock_name = self.mocker.replace("grec_harvester.normalize_author_name")
+        for i in range(calls):
+            self.mock_name(ANY)
+            self.mocker.result("Doe, J.")
+        self.mocker.replay()
+
+    def tearDownMock(self):
+        self.mocker.restore()
+        self.mocker.verify()
+
+    def test_returns_correct_object(self):
+        test = "Lastname F, Lastname F, Lastname F"
+        self.assertEquals(type(gh.normalize_author_list(test)), list)
+
+    def test_simple_list_comma(self):
+        self.setUpMock(3)
+
+        expected = ["Doe, J.", "Doe, J.", "Doe, J."]
+        test = "Lastname F, Lastname F, Lastname F"
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+
+    def test_simple_list_semicolon(self):
+        self.setUpMock(3)
+
+        expected = ["Doe, J.", "Doe, J.", "Doe, J."]
+        test = "Lastname, F.; Lastname, F.; Lastname, F."
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+
+    def test_list_conjunction_list_comma(self):
+        self.setUpMock(3)
+
+        expected = ["Doe, J.", "Doe, J.", "Doe, J."]
+        test = "Lastname F, Lastname D and Lastname E"
+
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+    def test_list_conjunction_list_semicolon(self):
+        self.setUpMock(3)
+
+        expected = ["Doe, J.", "Doe, J.", "Doe, J."]
+        test = "Lastname, F; Lastname, D and Lastname, E"
+
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+    def test_list_conjunction_pair(self):
+        self.setUpMock(2)
+
+        expected = ["Doe, J.", "Doe, J."]
+        test = "Lastname D and Lastname E"
+
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+    def test_list_conjunction_pair_comma(self):
+        self.setUpMock(2)
+
+        expected = ["Doe, J.", "Doe, J."]
+        test = "Lastname, D. and Lastname, E."
+        #print gh.normalize_author_list(test)
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+    def test_one_author_comma(self):
+        self.setUpMock(1)
+
+        expected = ["Doe, J."]
+        test = "Lastname, D"
+        #print gh.normalize_author_list(test)
+        self.assertEquals(gh.normalize_author_list(test), expected)
+
+        self.tearDownMock()
+
+
+class test_get_pubs_quantity(TestCase):
+    def setUp(self):
+        soup = BeautifulSoup('''<p class="consultac">Numero: 100</p>
+            <p class="llista"></p>
+            <p class="llista"></p>
+            <p class="llista"></p>
+            <p class="llista"></p>
+            <p class="llista"></p>''', "lxml", from_encoding="UTF8")
+        self.result = gh.get_pubs_quantity(soup)
+
+    def test_returns_correct_object(self):
+        self.assertEquals(type(self.result), tuple)
+        self.assertEquals(len(self.result), 2)
+
+    def test_correct_return_values(self):
+        self.assertEquals(self.result, (100, 20))
+
+class test_get_publication_dict(TestCase):
+    def test_returns_correct_value(self):
+        self.soup = BeautifulSoup('''<b>TestTitle</b>title
+            <b>TestTitle2</b>title2
+            <b>TestTitle3</b>title3
+            <b>Autors</b>Test, T.;Test, T.
+            <b>NullTitle</b>
+            ''')
+        self.mocker = Mocker()
+        mocker_get_soup = self.mocker.replace("grec_harvester.get_soup_from_url")
+        mocker_get_soup(ANY)
+        self.mocker.result(self.soup)
+        self.mocker.replay()
+
+        result = gh.get_publication_dict("nothing")
+        expected = {u'TestTitle2': u'title2',
+            u'TestTitle3': u'title3',
+            u'TestTitle': u'title',
+            u'Autors': [u'Test, T.', u'Test, T.'],
+            u'NullTitle': u''}
+
+        self.assertEquals(result, expected)
+        self.assertEquals(type(result), dict)
+
+        self.mocker.restore()
+        self.mocker.verify()
 
 
 if __name__ == "__main__":
