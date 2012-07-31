@@ -3,8 +3,6 @@
 
 from bs4 import BeautifulSoup
 
-from harvest_rdfizer import rdfize_pub_list
-
 import urllib2
 import simplejson
 import re
@@ -18,6 +16,13 @@ def clean_pub_title(string):
     if string.endswith(":"):
         return string[:-1]
     return string
+
+
+def has_one_element_character(string_list):
+    for element in string_list:
+        if len(element.strip().replace(",", "").replace(".", "")) == 1:
+            return True
+    return False
 
 
 def clean_href(string):
@@ -68,7 +73,7 @@ def normalize_author_name(name):
             if len(name_list) == 4 or len(name_list) == 5:
                 name = name_list[2].capitalize()+", "+name_list[0][0]+"."+name_list[1][0]+"."
             if len(name_list) == 3 or len(name_list) == 2:
-                name = name_list[1].capitalize()+", "+name_list[0][0]
+                name = name_list[1].capitalize()+", "+name_list[0][0]+"."
         else:
             match = re.match("^(\S+)\s+(:?(\S+)\s+)?(\S+)", name)
             name = match.group(1)[0]+"."
@@ -88,7 +93,10 @@ def normalize_author_list(string):
         if re.match("(\S\S+)\s+(\S\S?)(?:\s+(\S))?$", string.replace(".", " ").replace(",", " ").strip()):
             stringn = re.split(" and | amb | y ", string.replace(".", " ").replace(",", " ").strip())
         else:
-            stringn = re.split(",| and | i | amb | y ", string)
+            if has_one_element_character(re.split(",| and | i | amb | y ", string)):
+                stringn = re.split(" and | i | amb | y ", string)
+            else:
+                stringn = re.split(",| and | i | amb | y ", string)
     else:
         stringn = re.split(" and | amb | y ", string)
     author_list = [nom.replace(".", " ").replace(",", " ").strip() for nom in stringn]
@@ -188,7 +196,8 @@ if __name__ == '__main__':
         f = open(args.file, "w")
         if args.type == "json":
             f.write(simplejson.dumps(pubs, ensure_ascii = False).encode("utf8"))
-        else:        
+        else:
+            from harvest_rdfizer import rdfize_pub_list
             f.write(rdfize_pub_list(pubs))
         print "Output written in "+ f.name
         f.close()
