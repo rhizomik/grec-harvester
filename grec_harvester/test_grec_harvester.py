@@ -343,6 +343,39 @@ class test_get_pub_list_from_link(TestCase):
 
         self.tearDownMocks()
 
+class test_get_all_pubs_from_link_list(TestCase):
+    def setUp(self):
+        self.mocker = Mocker()
+
+    def setUpMock(self):
+        mocker_s = self.mocker.replace("grec_harvester.get_pub_list_from_link")
+        mocker_s(ANY)
+        self.mocker.result([{"pub1": "pub1", "pub2": "pub2"}, {"pub3": "pub3", "pub4": "pub4"}])
+        mocker_s(ANY)
+        self.mocker.result([{"pub5": "pub5", "pub6": "pub6"}, {"pub7": "pub7", "pub8": "pub8"}])
+        self.mocker.replay()
+
+    def tearDownMock(self):
+        self.mocker.restore()
+        self.mocker.verify()
+
+    def test_returns_correct_object(self):
+        self.setUpMock()
+
+        result = gh.get_all_pubs_from_link_list(["nothing", "nothing"])
+        self.assertEquals(type(result), list)
+
+        self.tearDownMock()
+
+    def test_returns_correct_value(self):
+        self.setUpMock()
+
+        result = gh.get_all_pubs_from_link_list(["nothing", "nothing"])
+        expected = [{"pub1": "pub1", "pub2": "pub2"}, {"pub3": "pub3", "pub4": "pub4"}, {"pub5": "pub5", "pub6": "pub6"}, {"pub7": "pub7", "pub8": "pub8"}]
+        self.assertEquals(result, expected)
+
+        self.tearDownMock()
+
 
 if __name__ == "__main__":
     main()
