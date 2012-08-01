@@ -159,7 +159,6 @@ def get_all_pubs_from_link_list(link_list):
     publication_list = []
     for link in link_list:
         print u"Getting data from", link
-        pub_page = get_soup_from_url(link)
         publication_list.extend(get_pub_list_from_link(link))
     return publication_list
 
