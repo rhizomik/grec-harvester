@@ -377,5 +377,55 @@ class test_get_all_pubs_from_link_list(TestCase):
         self.tearDownMock()
 
 
+class test_get_pubs_by_row_name(TestCase):
+    def setUp(self):
+        self.mocker_soup = Mocker()
+        self.mocker_link = Mocker()
+        self.mocker_pubs = Mocker()
+
+    def setUpMocks(self):
+        mocker_s = self.mocker_soup.replace("grec_harvester.get_soup_from_url")
+        mocker_s(ANY)
+        self.mocker_soup.result("anything")
+
+        mocker_l = self.mocker_link.replace("grec_harvester.get_links_in_row")
+        mocker_l(ANY, ANY)
+        self.mocker_link.result(["something", "something"])
+
+        mocker_p = self.mocker_pubs.replace("grec_harvester.get_all_pubs_from_link_list")
+        mocker_p(ANY)
+        self.mocker_pubs.result(["Expected result"])
+
+        self.mocker_soup.replay()
+        self.mocker_link.replay()
+        self.mocker_pubs.replay()
+
+    def tearDownMocks(self):
+        self.mocker_soup.restore()
+        self.mocker_link.restore()
+        self.mocker_pubs.restore()
+
+        self.mocker_soup.verify()
+        self.mocker_link.verify()
+        self.mocker_pubs.verify()
+
+    def test_returns_correct_object(self):
+        self.setUpMocks()
+
+        result = gh.get_pubs_by_row_name("Rowname")
+        self.assertEquals(type(result), list)
+
+        self.tearDownMocks()
+
+    def test_returns_correct_value(self):
+        self.setUpMocks()
+
+        result = gh.get_pubs_by_row_name("Rowname")
+        expected = ["Expected result"]
+        self.assertEquals(result, expected)
+
+        self.tearDownMocks()
+
+
 if __name__ == "__main__":
     main()
