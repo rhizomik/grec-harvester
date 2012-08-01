@@ -250,6 +250,7 @@ class test_get_pubs_quantity(TestCase):
     def test_correct_return_values(self):
         self.assertEquals(self.result, (100, 20))
 
+
 class test_get_publication_dict(TestCase):
     def test_returns_correct_value(self):
         self.soup = BeautifulSoup('''<b>TestTitle</b>title
@@ -276,6 +277,71 @@ class test_get_publication_dict(TestCase):
 
         self.mocker.restore()
         self.mocker.verify()
+
+
+class test_get_pub_list_from_link(TestCase):
+    def setUp(self):
+        self.mocker_soup = Mocker()
+        self.mocker_pubs = Mocker()
+        self.mocker_dict = Mocker()
+        self.mocker_href = Mocker()
+
+    def setUpMocks(self):
+        mocker_p = self.mocker_pubs.replace("grec_harvester.get_pubs_quantity")
+        mocker_p(ANY)
+        self.mocker_pubs.result(tuple([3, 1]))
+
+        soup = BeautifulSoup('''<p class="llista"><a href="nothing">test1</a></p>
+            <p class="llista"><a href="nothing">test2</a></p>
+            <p class="llista"><a href="nothing">test3</a></p>''', "lxml", from_encoding="UTF8")
+        mocker_s = self.mocker_soup.replace("grec_harvester.get_soup_from_url")
+        mocker_s(ANY)
+        self.mocker_soup.result("nothing")
+        mocker_s(ANY)
+        self.mocker_soup.result(soup)
+
+        mocker_d = self.mocker_dict.replace("grec_harvester.get_publication_dict")
+        for count in range(3):
+            mocker_d(ANY)
+            self.mocker_dict.result({"Test1": "test1"})
+
+        mocker_h = self.mocker_href.replace("grec_harvester.clean_href")
+        for count in range(3):
+            mocker_h(ANY)
+            self.mocker_href.result("url")
+
+        self.mocker_soup.replay()
+        self.mocker_pubs.replay()
+        self.mocker_dict.replay()
+        self.mocker_href.replay()
+
+    def tearDownMocks(self):
+        self.mocker_soup.restore()
+        self.mocker_pubs.restore()
+        self.mocker_dict.restore()
+        self.mocker_href.restore()
+
+        self.mocker_soup.verify()
+        self.mocker_pubs.verify()
+        self.mocker_dict.verify()
+        self.mocker_href.verify()
+
+    def test_returns_correct_object(self):
+        self.setUpMocks()
+
+        result = gh.get_pub_list_from_link("nothing")
+        self.assertEquals(type(result), list)
+
+        self.tearDownMocks()
+
+    def test_returns_correct_value(self):
+        self.setUpMocks()
+
+        result = gh.get_pub_list_from_link("nothing")
+        expected = [{'Test1': 'test1'}, {'Test1': 'test1'}, {'Test1': 'test1'}]
+        self.assertEquals(result, expected)
+
+        self.tearDownMocks()
 
 
 if __name__ == "__main__":
