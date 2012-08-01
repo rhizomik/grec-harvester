@@ -172,7 +172,7 @@ def get_pubs_by_row_name(row_name):
     return get_all_pubs_from_link_list(link_list)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     parser = argparse.ArgumentParser(description="Little script for scraping data on DIEI GREC website")
     parser.add_argument("rowtitle",
         metavar = "\"title\"",
