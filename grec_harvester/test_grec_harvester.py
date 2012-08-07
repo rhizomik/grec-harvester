@@ -48,12 +48,6 @@ class test_clean_href(TestCase):
         self.assertEquals(gh.clean_href(string), expected)
 
 
-#class test_remove_accents(TestCase):
-#    def test_common_chars(self):
-#        string = u"àá ñ èé òó í ú"
-#        self.assertEqual(gh.remove_accents(string), "aa n ee oo i u")
-
-
 class test_get_soup_from_url(TestCase):
     def test_inexistent_url(self):
         try:
@@ -91,12 +85,6 @@ class test_get_links_in_row(TestCase):
 
         expected = ["localhost", "localhost", "localhost"]
         self.assertEquals(gh.get_links_in_row(soup, "Row name"), expected)
-
-
-#class test_htmlize_string(TestCase):
-#    def test_complete_string(self):
-#        string = u"Hola, va tot correcte."
-#        self.assertEquals(gh.htmlize_string(string), "Holavatotcorrecte")
 
 
 class test_normalize_author_name(TestCase):
