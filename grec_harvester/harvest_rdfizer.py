@@ -14,7 +14,8 @@ uri_pub = "pub"
 swrc = "http://swrc.ontoware.org/ontology#"
 DC = Namespace("http://purl.org/dc/terms/")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-UNI = Namespace("http://swrc.ontoware.org/ontology#")
+SWRC = Namespace("http://swrc.ontoware.org/ontology#")
+UNI = Namespace("http://purl.org/weso/uni/uni.html#")
 
 #END GLOBAL VARS
 
@@ -22,6 +23,7 @@ UNI = Namespace("http://swrc.ontoware.org/ontology#")
 graph = ConjunctiveGraph()
 graph.bind("dc", DC)
 graph.bind("rdfs", RDFS)
+graph.bind("swrc", SWRC)
 graph.bind("uni", UNI)
 # End create RDF Graph
 
@@ -43,7 +45,7 @@ def rdfize_output_common(pub_dict):
     graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
 
     if pub_dict.has_key(u"Autors"):
-        graph.add((pub_uriref, UNI.authors, Literal("; ".join(pub_dict[u"Autors"]))))
+        graph.add((pub_uriref, SWRC.authors, Literal("; ".join(pub_dict[u"Autors"]))))
         for autor in pub_dict[u"Autors"]:
             autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
             graph.add((autor_uriref, RDF.type, DC.author))
@@ -54,60 +56,62 @@ def rdfize_output_common(pub_dict):
 def rdfize_pages(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
     if pub_dict[u"Pàgina inicial"] != "" or pub_dict[u"Pàgina final"] != "":
-        graph.add((pub_uriref, UNI.pages, Literal(pub_dict[u"Pàgina inicial"] +"-"+ pub_dict[u"Pàgina final"])))
+        graph.add((pub_uriref, SWRC.pages, Literal(pub_dict[u"Pàgina inicial"] +"-"+ pub_dict[u"Pàgina final"])))
     if pub_dict["Volum"] != "":
-        graph.add((pub_uriref, UNI.volume, Literal(pub_dict["Volum"])))
+        graph.add((pub_uriref, SWRC.volume, Literal(pub_dict["Volum"])))
 
 
 def rdfize_journal_article(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, UNI.Article))
+    graph.add((pub_uriref, RDF.type, SWRC.Article))
     rdfize_pages(pub_dict)
 
     if pub_dict["ISSN"] != "":
         journal_uriref = URIRef(pub_base_uri+"/journal/"+pub_dict["ISSN"])
-        graph.add((pub_uriref, UNI.isPartOf, journal_uriref))
-        graph.add((journal_uriref, RDF.type, UNI.Journal))
+        graph.add((pub_uriref, SWRC.isPartOf, journal_uriref))
+        graph.add((journal_uriref, RDF.type, SWRC.Journal))
         graph.add((journal_uriref, RDFS.label, Literal(pub_dict["Revista"])))
-        graph.add((journal_uriref, UNI.ISSN, Literal(pub_dict["ISSN"])))
+        graph.add((journal_uriref, SWRC.ISSN, Literal(pub_dict["ISSN"])))
 
 
 def rdfize_book_article(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, UNI.Article))
+    graph.add((pub_uriref, RDF.type, SWRC.Article))
     rdfize_pages(pub_dict)
 
     if pub_dict["ISBN"] != "":
         book_uriref = URIRef(pub_base_uri+"/book/"+pub_dict["ISBN"])
-        graph.add((pub_uriref, UNI.isPartOf, book_uriref))
-        graph.add((book_uriref, RDF.type, UNI.Book))
+        graph.add((pub_uriref, SWRC.isPartOf, book_uriref))
+        graph.add((book_uriref, RDF.type, SWRC.Book))
         if pub_dict[u"Referència"] != "":
             graph.add((book_uriref, RDFS.label, Literal(pub_dict[u"Referència"])))
-        graph.add((book_uriref, UNI.ISBN, Literal(pub_dict["ISBN"])))
+        graph.add((book_uriref, SWRC.ISBN, Literal(pub_dict["ISBN"])))
         if pub_dict[u"Editorial"] != "": 
-            graph.add((book_uriref, UNI.editor, Literal(pub_dict[u"Editorial"])))
+            graph.add((book_uriref, SWRC.editor, Literal(pub_dict[u"Editorial"])))
 
 
 def rdfize_thesis(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, UNI.Thesis))
+    graph.add((pub_uriref, RDF.type, SWRC.Thesis))
     for autor in pub_dict[u"Autor"]:
         autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
+        graph.add((pub_uriref, RDF.type, DC.author))
         graph.add((pub_uriref, DC.author, autor_uriref))
         graph.add((autor_uriref, RDFS.label, Literal(autor)))
 
     for director in pub_dict[u"Director"]:
         director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(director))
-        graph.add((pub_uriref, UNI.supervisor, director_uriref))
+        graph.add((pub_uriref, RDF.type, SWRC.supervisor))
+        graph.add((pub_uriref, SWRC.supervisor, director_uriref))
         graph.add((director_uriref, RDFS.label, Literal(director)))
 
-    graph.add((pub_uriref, UNI.school, Literal(pub_dict[u"Facultat"])))
+    graph.add((pub_uriref, SWRC.school, Literal(pub_dict[u"Facultat"])))
     graph.add((pub_uriref, DC.University, Literal(pub_dict[u"Universitat"])))
 
 
@@ -115,20 +119,54 @@ def rdfize_congress_paper(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, UNI.Article))
-    graph.add((pub_uriref, UNI.Meeting, Literal(pub_dict[u"Congrés"])))
+    graph.add((pub_uriref, RDF.type, SWRC.Article))
+    graph.add((pub_uriref, SWRC.Meeting, Literal(pub_dict[u"Congrés"])))
+
+
+def rdfize_input_common(pub_dict):
+    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+
+    director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(pub_dict["Investigador principal"]))
+    graph.add((pub_uriref, SWRC.supervisor, director_uriref))
+    graph.add((director_uriref, RDF.type, SWRC.supervisor))
+    graph.add((director_uriref, RDFS.label, Literal(pub_dict["Investigador principal"])))
+
+    graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
+
+    if pub_dict["Data d'inici"] != "":
+        graph.add((pub_uriref, DC.beginDate, Literal(pub_dict[u"Data d'inici"])))
+
+    if pub_dict["Data Fi"] != "":
+        graph.add((pub_uriref, DC.endDate, Literal(pub_dict[u"Data Fi"])))
+
+    if pub_dict["Data"] != "":
+        graph.add((pub_uriref, DC.date, Literal(pub_dict[u"Data"])))
+
+    if pub_dict["Investigadors secundaris"] != []:
+        graph.add((pub_uriref, SWRC.authors, Literal(pub_dict["Investigador principal"]+"; "+"; ".join(pub_dict["Investigadors secundaris"]))))
+        for researcher in pub_dict["Investigadors secundaris"]:
+            researcher_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(researcher))
+            graph.add((pub_uriref, DC.author, researcher_uriref))
+            graph.add((researcher_uriref, RDF.type, DC.author))
+            graph.add((researcher_uriref, RDFS.label, Literal(researcher)))
 
 
 def rdfize_research_project(pub_dict):
-    pass
+    rdfize_input_common(pub_dict)
+    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+
+    graph.add((pub_uriref, RDF.type, SWRC.Project))
 
 
 def rdfize_european_project(pub_dict):
-    pass
+    rdfize_input_common(pub_dict)
+    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+
+    graph.add((pub_uriref, RDF.type, SWRC.Project))
 
 
 def rdfize_contract(pub_dict):
-    pass
+    rdfize_input_common(pub_dict)
 
 
 def rdfize_pub_list(pub_list):
