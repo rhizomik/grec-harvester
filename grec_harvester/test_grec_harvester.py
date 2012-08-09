@@ -130,6 +130,16 @@ class test_normalize_author_name(TestCase):
         name4 = "ABLA1 BBLA2 CBLA3"
         self.assertEquals(gh.normalize_author_name(name4), "Bbla2, A.")
 
+    def test_name_with_conjunction_form(self):
+        name1 = "AAAA DE AAA AAA"
+        self.assertEquals(gh.normalize_author_name(name1), "De Aaa, A.")
+
+        name2 = "AAAA AAA DE AAA"
+        self.assertEquals(gh.normalize_author_name(name2), "Aaa, A.")
+
+        name2 = "AAAA AAA DE AAA CCC"
+        self.assertEquals(gh.normalize_author_name(name2), "De Aaa, A.A.")
+
 
 class test_normalize_author_list(TestCase):
     def setUp(self):
