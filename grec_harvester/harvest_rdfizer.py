@@ -127,11 +127,17 @@ def rdfize_input_common(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
     director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(pub_dict["Investigador principal"]))
-    graph.add((pub_uriref, SWRC.supervisor, director_uriref))
-    graph.add((director_uriref, RDF.type, SWRC.supervisor))
+    graph.add((pub_uriref, SWRC.head, director_uriref))
+    graph.add((director_uriref, RDF.type, SWRC.head))
     graph.add((director_uriref, RDFS.label, Literal(pub_dict["Investigador principal"])))
 
     graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
+
+    graph.add((pub_uriref, DC.isPartOf, Literal(pub_dict[u"Convocatòria"])))
+
+    graph.add((pub_uriref, SWRC.financedBy, Literal(pub_dict[u"Organisme"])))
+
+    graph.add((pub_uriref, SWRC.carriedOutBy, Literal(pub_dict[u"Institució"])))
 
     if pub_dict["Data d'inici"] != "":
         graph.add((pub_uriref, DC.beginDate, Literal(pub_dict[u"Data d'inici"])))
@@ -146,8 +152,8 @@ def rdfize_input_common(pub_dict):
         graph.add((pub_uriref, SWRC.authors, Literal(pub_dict["Investigador principal"]+"; "+"; ".join(pub_dict["Investigadors secundaris"]))))
         for researcher in pub_dict["Investigadors secundaris"]:
             researcher_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(researcher))
-            graph.add((pub_uriref, DC.author, researcher_uriref))
-            graph.add((researcher_uriref, RDF.type, DC.author))
+            graph.add((pub_uriref, SWRC.member, researcher_uriref))
+            graph.add((researcher_uriref, RDF.type, SWRC.member))
             graph.add((researcher_uriref, RDFS.label, Literal(researcher)))
 
 
@@ -156,6 +162,8 @@ def rdfize_research_project(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.Project))
+    graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi oficial"])))
+    graph.add((pub_uriref, DC.isPartOf, Literal(pub_dict[u"Programa"])))
 
 
 def rdfize_european_project(pub_dict):
@@ -163,10 +171,15 @@ def rdfize_european_project(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.Project))
+    graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi UE"])))
+    graph.add((pub_uriref, DC.isPartOf, Literal(pub_dict[u"Programa"])))
 
 
 def rdfize_contract(pub_dict):
     rdfize_input_common(pub_dict)
+    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+
+    graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi oficial"])))
 
 
 def rdfize_pub_list(pub_list):
