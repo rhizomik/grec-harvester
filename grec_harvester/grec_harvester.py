@@ -25,6 +25,12 @@ def has_one_element_character(string_list):
     return False
 
 
+def remove_last_char(string):
+    if string.endswith(",") or string.endswith("."):
+        return string[:-1].strip()
+    return string
+
+
 def clean_href(string):
     '''Clean the javascript stuff from the given content of href property of an anchor'''
     return string.split("'")[1]
@@ -71,7 +77,15 @@ def normalize_author_name(name):
         if name.isupper():
             name_list = name.split(" ")
             if len(name_list) == 4 or len(name_list) == 5:
-                name = name_list[2].capitalize()+", "+name_list[0][0]+"."+name_list[1][0]+"."
+                if re.match(".* DE .*", name):
+                    if name_list.index("DE") == 1 and len(name_list) == 4:
+                        name = name_list[1].capitalize()+" "+name_list[2].capitalize()+", "+name_list[0][0]+"."
+                    elif name_list.index("DE") == 2 and len(name_list) == 5:
+                        name = name_list[2].capitalize()+" "+name_list[3].capitalize()+", "+name_list[0][0]+"."+name_list[1][0]+"."
+                    else:
+                        name = name_list[1].capitalize()+", "+name_list[0][0]+"."
+                else:
+                    name = name_list[2].capitalize()+", "+name_list[0][0]+"."+name_list[1][0]+"."
             if len(name_list) == 3 or len(name_list) == 2:
                 name = name_list[1].capitalize()+", "+name_list[0][0]+"."
         else:
@@ -81,7 +95,6 @@ def normalize_author_name(name):
                 name = match.group(4)+", "+name+match.group(3)[0]+"."
             else:
                 name = match.group(4)+", "+name
-    #graph.add((URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(name)), DC.author, Literal(name)))
     return name
 
 
@@ -125,8 +138,8 @@ def get_publication_dict(pub_url):
             try:
                 if titol == "Autors" or titol == "Autor" or titol == "Director":
                     pub_dict[titol] = normalize_author_list(item.next_element.next_element.strip())
-                elif titol == "Nom" or clean_pub_title(item.next_element) == "Organisme":
-                    pub_dict[titol] = item.parent.parent.find_all("td")[1].next_element
+                elif titol == u"Convocatòria" or titol == u"Organisme" or titol == u"Data":
+                    pub_dict[titol] = remove_last_char(item.next_element.next_element.strip())
                 elif titol == "Equip investigador":
                     res_list = [normalize_author_name(nom.next_element.strip()) for nom in item.parent.find_all("a", {"class":"inves"})]
                     pub_dict["Investigador principal"] = res_list[0]
