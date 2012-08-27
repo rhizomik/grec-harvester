@@ -74,6 +74,16 @@ class test_get_soup_from_url(TestCase):
         mocker.verify()
 
 
+class test_remove_last_char(TestCase):
+    def test_returns_correct_value(self):
+        self.assertEquals(gh.remove_last_char("string,"), "string")
+        self.assertEquals(gh.remove_last_char("string."), "string")
+        self.assertEquals(gh.remove_last_char("string"), "string")
+
+    def test_returns_correct_object(self):
+        self.assertEquals(type(gh.remove_last_char("string,")), str)
+
+
 class test_get_links_in_row(TestCase):
     def test_returns_correct_value(self):
         soup = BeautifulSoup('''<tr>
