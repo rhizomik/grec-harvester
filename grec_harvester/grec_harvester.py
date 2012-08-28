@@ -210,6 +210,6 @@ if __name__ == '__main__': # pragma: no cover
             f.write(simplejson.dumps(pubs, ensure_ascii = False).encode("utf8"))
         else:
             from harvest_rdfizer import rdfize_pub_list
-            f.write(rdfize_pub_list(pubs))
+            f.write(rdfize_pub_list(pubs, False))
         print "Output written in "+ f.name
         f.close()
