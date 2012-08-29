@@ -7,6 +7,7 @@ from rdflib.collection import Collection
 
 from bs4 import BeautifulSoup
 import urllib2
+from harvest_rdfizer import htmlize_string
 
 import unicodedata
 
@@ -14,6 +15,7 @@ import unicodedata
 pub_base_uri = "http://www.diei.udl.cat"
 uri_person = "person"
 uri_pub = "pub"
+uri_sub = "subject"
 DC = Namespace("http://purl.org/dc/terms/")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 SWRC = Namespace("http://swrc.ontoware.org/ontology#")
@@ -37,3 +39,39 @@ def get_teaching_soup(source):
     return BeautifulSoup(open("docencia.xml"), "lxml", from_encoding="UTF8")
     #return BeautifulSoup(urllib2.urlopen(source), "lxml", from_encoding="UTF8")
 
+
+def build_graph():
+    soup = get_teaching_soup("nothing")
+
+    prof_list = soup.find_all("professor")
+
+    for professor in prof_list:
+        if not professor.find("nom").text == "null":
+            nom_n = " ".join([nom[0]+"." for nom in professor.find("nom").text.split(" ")])
+            cognom_n = professor.find("cognoms").text.split(" ")[0]
+            nom_complet =  cognom_n +", "+ nom_n
+            nom_complet_html = htmlize_string(cognom_n +", "+ nom_n)
+            profe_uri = URIRef(pub_base_uri +"/"+ uri_person +"/"+ nom_complet_html)
+            graph.add((profe_uri, RDF.type, UNI.Professor))
+            graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
+            graph.add((profe_uri, DC.identifier, Literal(professor.find("dni").text)))
+            if not professor.find("assignatures").text == "":
+                for subject in professor.find_all("assignatura"):
+                    subject_uri = URIRef(pub_base_uri +"/"+ uri_sub +"/"+ subject.find("codi").text)
+                    graph.add((subject_uri, RDF.type, UNI.Subject))
+                    graph.add((subject_uri, RDFS.label, Literal(subject.find("nom").text)))
+                    graph.add((subject_uri, SWRC.CarriedOutBy, profe_uri))
+
+            if not professor.find("telefon").text == "":
+                graph.add((profe_uri, DC.phone, Literal(professor.find("telefon").text)))
+
+            if not professor.find("web").text == "":
+                graph.add((profe_uri, DC.website, Literal(professor.find("web").text)))
+
+            if not professor.find("ubicacio").text == "":
+                graph.add((profe_uri, DC.office, Literal(professor.find("ubicacio").text)))
+
+
+def get_graph():
+    build_graph()
+    return graph
