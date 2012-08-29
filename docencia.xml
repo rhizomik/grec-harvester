@@ -1,0 +1,2006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Departament>
+	<Codi>P111</Codi>
+	<Nom>Inform�tica i Enginyera Industrial</Nom>
+
+	<Professors>
+		<Professor>
+			<Dni>39891220</Dni>
+			<Nom>Santi</Nom>
+			<Cognoms>Marinez Rodriguez</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78091757</Dni>
+			<Nom>null</Nom>
+			<Cognoms>null</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>null</Telefon>
+			<Fax>null</Fax>
+			<Ubicacio>null</Ubicacio>
+			<Web>null</Web>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78087112</Dni>
+			<Nom>null</Nom>
+			<Cognoms>null</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>null</Telefon>
+			<Fax>null</Fax>
+			<Ubicacio>null</Ubicacio>
+			<Web>null</Web>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>47693330</Dni>
+			<Nom>H�ctor</Nom>
+			<Cognoms>Blanco de Frutos</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>47690007</Dni>
+			<Nom>Alberto</Nom>
+			<Cognoms>Monta�ola Lacort</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973 70 27 15</Telefon>
+			<Fax/>
+			<Ubicacio>EPS 2.07</Ubicacio>
+			<Web>http://almlys.org</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5504</Codi>
+					<Nom>FONAMENTS D'INFORM�TICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50016</Codi>
+					<Nom>AMPLIACI� D'ESTRUCTURES DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50101</Codi>
+					<Nom>ESTRUCTURA I TECNOLOGIA DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53008</Codi>
+					<Nom>INFORM�TICA APLICADA A L'ARQUITECTURA </Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>76109</Codi>
+					<Nom>INFORM�TICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43747460</Dni>
+			<Nom>null</Nom>
+			<Cognoms>null</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>null</Telefon>
+			<Fax>null</Fax>
+			<Ubicacio>null</Ubicacio>
+			<Web>null</Web>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43727937</Dni>
+			<Nom>Josep Lluis</Nom>
+			<Cognoms>L�rida Monso</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973 702729</Telefon>
+			<Fax/>
+			<Ubicacio>CAPPONT - EPS - Despatx 3.17</Ubicacio>
+			<Web>http://gcd.udl.cat</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5504</Codi>
+					<Nom>FONAMENTS D'INFORM�TICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53008</Codi>
+					<Nom>INFORM�TICA APLICADA A L'ARQUITECTURA </Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>76109</Codi>
+					<Nom>INFORM�TICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>50173567</Dni>
+			<Nom>Fernando</Nom>
+			<Cognoms>Guirado Fern�ndez</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973 702729</Telefon>
+			<Fax/>
+			<Ubicacio>Campus Cap Pont - EPS - Num.Despatx 3.17</Ubicacio>
+			<Web>http://gcd.udl.cat/</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5548</Codi>
+					<Nom>AUT�MATS PROGRAMABLES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11526</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12035</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50001</Codi>
+					<Nom>ESTRUCTURA I TECNOLOGIA DE COMPUTADORS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43702856</Dni>
+			<Nom>Francesc</Nom>
+			<Cognoms>Gin� de Sola</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973 702748</Telefon>
+			<Fax/>
+			<Ubicacio>Campus - Edifici - Num.Despatx</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11526</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12035</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50016</Codi>
+					<Nom>AMPLIACI� D'ESTRUCTURES DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50116</Codi>
+					<Nom>ESTRUCTURA I ARQUITECTURA DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51004</Codi>
+					<Nom>ARQUITECTURA I ENGINYERIA DE COMPUTADORS II</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>52462225</Dni>
+			<Nom>Fernando</Nom>
+			<Cognoms>Cores Prado</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+973 702731</Telefon>
+			<Fax/>
+			<Ubicacio>S3/14 (EPS)</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11516</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA I APLICACIONS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11526</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12035</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50011</Codi>
+					<Nom>SISTEMES OPERATIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50109</Codi>
+					<Nom>SISTEMES OPERATIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51033</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA I APLICACIONS  </Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40896070</Dni>
+			<Nom>Francesc</Nom>
+			<Cognoms>Solsona Tehas</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973 702735</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11513</Codi>
+					<Nom>SEGURETAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11526</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12035</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50018</Codi>
+					<Nom>AMPLIACI� DE SISTEMES OPERATIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50118</Codi>
+					<Nom>AMPLIACI� DE SISTEMES OPERATIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50132</Codi>
+					<Nom>GESTI� I ADMINISTRACI� DE SISTEMES INFORM�TICS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43701963</Dni>
+			<Nom>J. M.</Nom>
+			<Cognoms>Sola</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon/>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5504</Codi>
+					<Nom>FONAMENTS D'INFORM�TICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50101</Codi>
+					<Nom>ESTRUCTURA I TECNOLOGIA DE COMPUTADORS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78070848</Dni>
+			<Nom>Concepcio</Nom>
+			<Cognoms>Roig Mateu</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973 702733</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11526</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12035</Codi>
+					<Nom>COMPUTACI� DISTRIBU�DA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50101</Codi>
+					<Nom>ESTRUCTURA I TECNOLOGIA DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50116</Codi>
+					<Nom>ESTRUCTURA I ARQUITECTURA DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51003</Codi>
+					<Nom>ARQUITECTURA I ENGINYERIA DE COMPUTADORS I</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>47678078</Dni>
+			<Nom>Xavier</Nom>
+			<Cognoms>Faus Tor�</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50132</Codi>
+					<Nom>GESTI� I ADMINISTRACI� DE SISTEMES INFORM�TICS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43734186</Dni>
+			<Nom>null</Nom>
+			<Cognoms>null</Cognoms>
+			<Area_coneixement>ARQUITECTURA I TECNOLOGIA DE COMPUTADORS</Area_coneixement>
+			<Telefon>null</Telefon>
+			<Fax>null</Fax>
+			<Ubicacio>null</Ubicacio>
+			<Web>null</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5504</Codi>
+					<Nom>FONAMENTS D'INFORM�TICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50001</Codi>
+					<Nom>ESTRUCTURA I TECNOLOGIA DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50109</Codi>
+					<Nom>SISTEMES OPERATIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50116</Codi>
+					<Nom>ESTRUCTURA I ARQUITECTURA DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50118</Codi>
+					<Nom>AMPLIACI� DE SISTEMES OPERATIUS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43720656</Dni>
+			<Nom>Carles</Nom>
+			<Cognoms>Mateu Pi�ol</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973 702199</Telefon>
+			<Fax/>
+			<Ubicacio>Rectorat 1.09</Ubicacio>
+			<Web>http://www.udl.es/usuaris/carlesm/</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>7605</Codi>
+					<Nom>INTRODUCCI� AL PROGRAMARI LLIURE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11501</Codi>
+					<Nom>COMUNITATS I PROJECTES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11505</Codi>
+					<Nom>INTRODUCCI� AL PROGRAMARI LLIURE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50021</Codi>
+					<Nom>XARXES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43705464</Dni>
+			<Nom>David</Nom>
+			<Cognoms>Calder� Vidal</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio>Despatx ??</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50021</Codi>
+					<Nom>XARXES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50031</Codi>
+					<Nom>INTERNET:ADMINISTRACI�, APLICACIONS I SEGURETAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50133</Codi>
+					<Nom>INTERNET:ADMINISTRACI�, APLICACIONS I SEGURETAT</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43743049</Dni>
+			<Nom>Carlos</Nom>
+			<Cognoms>Ansotegui Gil</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973 70 27 44</Telefon>
+			<Fax/>
+			<Ubicacio>EPS 2.16</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11508</Codi>
+					<Nom>XARXES I</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11535</Codi>
+					<Nom>PR�CTIQUES TUTELADES EN EMPRESA I</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11536</Codi>
+					<Nom>PR�CTIQUES TUTELADES EN EMPRESA II</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50026</Codi>
+					<Nom>INTEL�LIG�NCIA ARTIFICIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50106</Codi>
+					<Nom>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50113</Codi>
+					<Nom>L�GICA COMPUTACIONAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50129</Codi>
+					<Nom>INTEL�LIG�NCIA ARTIFICIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51005</Codi>
+					<Nom>XARXES I</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43721491</Dni>
+			<Nom>Ramon</Nom>
+			<Cognoms>Bejar Torres</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973 702736</Telefon>
+			<Fax/>
+			<Ubicacio>Campus Cappont - Edifici EPS - Num.Despatx: 3.23</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5535</Codi>
+					<Nom>INTEL�LIG�NCIA ARTIFICIAL: APLICACIONS A L'ENGINYERIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11500</Codi>
+					<Nom>ASPECTES LEGALS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11501</Codi>
+					<Nom>COMUNITATS I PROJECTES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11504</Codi>
+					<Nom>INTEL�LIG�NCIA ARTIFICIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11505</Codi>
+					<Nom>INTRODUCCI� AL PROGRAMARI LLIURE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50106</Codi>
+					<Nom>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51007</Codi>
+					<Nom>INTEL�LIG�NCIA ARTIFICIAL</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40891484</Dni>
+			<Nom>Teresa</Nom>
+			<Cognoms>Alsinet Bernad�</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973 702734</Telefon>
+			<Fax/>
+			<Ubicacio>EPS. Despatx 2.13</Ubicacio>
+			<Web>http://ai.udl.cat/</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11525</Codi>
+					<Nom>INTRODUCCI� A LA RECERCA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11532</Codi>
+					<Nom>SEMINARI DE SISTEMES INTEL�LIGENTS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12034</Codi>
+					<Nom>INTRODUCCI� A LA RECERCA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12041</Codi>
+					<Nom>SEMINARI DE SISTEMES INTEL�LIGENTS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50014</Codi>
+					<Nom>L�GICA COMPUTACIONAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50113</Codi>
+					<Nom>L�GICA COMPUTACIONAL</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40893749</Dni>
+			<Nom>C�sar</Nom>
+			<Cognoms>Fern�ndez</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973 702738</Telefon>
+			<Fax/>
+			<Ubicacio>Campus Cap Pont - Escola Polit�cnica Superior- Despatx 3.21</Ubicacio>
+			<Web>http://ccia.udl.cat/content/view/15/33/</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11506</Codi>
+					<Nom>LLENGUATGES INTERPRETATS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11514</Codi>
+					<Nom>SOLUCIONS LLIURES EN ENTORNS CORPORATIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50021</Codi>
+					<Nom>XARXES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43727608</Dni>
+			<Nom>Ramon</Nom>
+			<Cognoms>Cervera Zaragoza</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50106</Codi>
+					<Nom>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACI�</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40336924</Dni>
+			<Nom>Jordi</Nom>
+			<Cognoms>Pujol�s Boix</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11519</Codi>
+					<Nom>PROTOCOLS CRIPTOGR�FICS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50014</Codi>
+					<Nom>L�GICA COMPUTACIONAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50031</Codi>
+					<Nom>INTERNET:ADMINISTRACI�, APLICACIONS I SEGURETAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50113</Codi>
+					<Nom>L�GICA COMPUTACIONAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50133</Codi>
+					<Nom>INTERNET:ADMINISTRACI�, APLICACIONS I SEGURETAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51029</Codi>
+					<Nom>PROTOCOLS CRIPTOGR�FICS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43725949</Dni>
+			<Nom>Jordi</Nom>
+			<Cognoms>Planes Cid</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>973 70 2764</Telefon>
+			<Fax/>
+			<Ubicacio>EPS 2.17</Ubicacio>
+			<Web>http://web.udl.es/usuaris/m4372594/</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11507</Codi>
+					<Nom>PROCESSADORS DE LLENGUATGE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11509</Codi>
+					<Nom>XARXES II</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11521</Codi>
+					<Nom>SISTEMES INTEL�LIGENTS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51006</Codi>
+					<Nom>XARXES II</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51008</Codi>
+					<Nom>PROCESSADORS DE LLENGUATGE  </Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51043</Codi>
+					<Nom>SISTEMES INTEL�LIGENTS </Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43746388</Dni>
+			<Nom>Xavier</Nom>
+			<Cognoms>Noguero Marin</Cognoms>
+			<Area_coneixement>CI�NCIES DE LA COMPUTACI� I INTEL�LIG�NCIA ARTIFICIAL</Area_coneixement>
+			<Telefon>+34 973 702148</Telefon>
+			<Fax/>
+			<Ubicacio>Espai 0.08</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50031</Codi>
+					<Nom>INTERNET:ADMINISTRACI�, APLICACIONS I SEGURETAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50133</Codi>
+					<Nom>INTERNET:ADMINISTRACI�, APLICACIONS I SEGURETAT</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43749467</Dni>
+			<Nom>Gerard</Nom>
+			<Cognoms>Fontanals Clop</Cognoms>
+			<Area_coneixement>CONSTRUCCIONS ARQUITECT�NIQUES</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>53021</Codi>
+					<Nom>ORGANITZACI� D'OBRES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53035</Codi>
+					<Nom>REHABILITACI� I MANTENIMENT D'EDIFICIS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>X5439248</Dni>
+			<Nom>Cecilia</Nom>
+			<Cognoms>Castellon Gomez</Cognoms>
+			<Area_coneixement>CONSTRUCCIONS ARQUITECT�NIQUES</Area_coneixement>
+			<Telefon>+34 973003577</Telefon>
+			<Fax/>
+			<Ubicacio> </Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>53019</Codi>
+					<Nom>AMIDAMENTS, PRESSUPOSTOS I VALORACIONS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53028</Codi>
+					<Nom>OFICINA T�CNICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>46806528</Dni>
+			<Nom>Lidia</Nom>
+			<Cognoms>Rincon Villarreal</Cognoms>
+			<Area_coneixement>CONSTRUCCIONS ARQUITECT�NIQUES</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>53021</Codi>
+					<Nom>ORGANITZACI� D'OBRES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40897307</Dni>
+			<Nom>Gabriel</Nom>
+			<Cognoms>Perez Luque</Cognoms>
+			<Area_coneixement>CONSTRUCCIONS ARQUITECT�NIQUES</Area_coneixement>
+			<Telefon>973003573</Telefon>
+			<Fax/>
+			<Ubicacio>Cappont-CREA</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5502</Codi>
+					<Nom>EXPRESSI� GR�FICA I DISSENY ASSISTIT PER ORDINADOR</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>6523</Codi>
+					<Nom>ELS ENGINYERS I EL SEU ENTORN SOCIOPROFESSIONAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53002</Codi>
+					<Nom>EXPRESSI� GR�FICA APLICADA A LES CONSTRUCCIONS ARQUITECT�NIQUES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53004</Codi>
+					<Nom>FONAMENTS D'EXPRESSI� GR�FICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>60165</Codi>
+					<Nom>ELS ENGINYERS EN L'EMPRESA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78086650</Dni>
+			<Nom>Miquel</Nom>
+			<Cognoms>Orobitg Cortada</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973 702718</Telefon>
+			<Fax/>
+			<Ubicacio>Ubicaci�: 	Campus Cap Pont - EPS - Num.Despatx 2.20</Ubicacio>
+			<Web>http://gcd.udl.cat</Web>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43738206</Dni>
+			<Nom>Miquel �nngel</Nom>
+			<Cognoms>Carnic� Torrelles</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5516</Codi>
+					<Nom>MEC�NICA I TEORIA DE MECANISMES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40872780</Dni>
+			<Nom>Enric</Nom>
+			<Cognoms>Guitart Baraut</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973 702772</Telefon>
+			<Fax/>
+			<Ubicacio>3.23</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50023</Codi>
+					<Nom>AMPLIACI� DE XARXES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50112</Codi>
+					<Nom>XARXES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50120</Codi>
+					<Nom>AMPLIACI� DE XARXES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78085977</Dni>
+			<Nom>Jordi</Nom>
+			<Cognoms>Masip Oronich</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>53020</Codi>
+					<Nom>EQUIPS D'OBRES, INSTAL�LACIONS I MITJANS AUXILIARS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43715917</Dni>
+			<Nom>Alba</Nom>
+			<Cognoms>Cabiscol Teixid�</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973 702723</Telefon>
+			<Fax/>
+			<Ubicacio>2.11</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5502</Codi>
+					<Nom>EXPRESSI� GR�FICA I DISSENY ASSISTIT PER ORDINADOR</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43735326</Dni>
+			<Nom>Cristian</Nom>
+			<Cognoms>Sole Cutrona</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973 00 35 86</Telefon>
+			<Fax/>
+			<Ubicacio>Edifici CREA despatx 0.12</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>10234</Codi>
+					<Nom>TALLER D'ENERGIES ALTERNATIVES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53015</Codi>
+					<Nom>INSTAL�LACIONS ELECTROMEC�NIQUES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43710922</Dni>
+			<Nom>Salvador</Nom>
+			<Cognoms>Sol Felip</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5502</Codi>
+					<Nom>EXPRESSI� GR�FICA I DISSENY ASSISTIT PER ORDINADOR</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>72510</Codi>
+					<Nom>BIOTECNOLOGIA AGROALIMENT�RIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>76206</Codi>
+					<Nom>FISIOLOGIA VEGETAL</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40850862</Dni>
+			<Nom>Ramon</Nom>
+			<Cognoms>Grau</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon/>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5519</Codi>
+					<Nom>OFICINA T�CNICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40894503</Dni>
+			<Nom>Juan Jose</Nom>
+			<Cognoms>Gonzalez Fabra</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5522</Codi>
+					<Nom>TECNOLOGIA MEC�NICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78076797</Dni>
+			<Nom>Joan</Nom>
+			<Cognoms>Roca Enrich</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>+34 973 003569</Telefon>
+			<Fax/>
+			<Ubicacio>CREA</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5516</Codi>
+					<Nom>MEC�NICA I TEORIA DE MECANISMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5522</Codi>
+					<Nom>TECNOLOGIA MEC�NICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11528</Codi>
+					<Nom>DISSENY I CONTROL DE MECANISMES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>46101720</Dni>
+			<Nom>Josep</Nom>
+			<Cognoms>Reig i Puig</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon/>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5512</Codi>
+					<Nom>DISSENY DE M�QUINES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>39873002</Dni>
+			<Nom>Miquel</Nom>
+			<Cognoms>Nogu�s Aymam�</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon>973 00 35 69</Telefon>
+			<Fax/>
+			<Ubicacio>Edifici CREA - Campus Cappont - Despatx 0.15</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5516</Codi>
+					<Nom>MEC�NICA I TEORIA DE MECANISMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5522</Codi>
+					<Nom>TECNOLOGIA MEC�NICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11528</Codi>
+					<Nom>DISSENY I CONTROL DE MECANISMES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40857416</Dni>
+			<Nom>Joan Monyarch</Nom>
+			<Cognoms>Callizo</Cognoms>
+			<Area_coneixement>ENGINYERIA MEC�NICA</Area_coneixement>
+			<Telefon/>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5520</Codi>
+					<Nom>PR�CTIQUES TUTELADES EN EMPRESES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5534</Codi>
+					<Nom>OLEOHIDR�ULICA I PNEUM�TICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51015</Codi>
+					<Nom>PR�CTIQUES TUTELADES EN EMPRESA  </Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51016</Codi>
+					<Nom>PR�CTIQUES TUTELADES EN EMPRESA I</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53023</Codi>
+					<Nom>PR�CTIQUES TUTELADES EN EMPRESA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43740937</Dni>
+			<Nom>Esteve</Nom>
+			<Cognoms>Brugulat Cu��</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>30003</Codi>
+					<Nom>INFORM�TICA APLICADA A LA GESTI� D'EMPRESES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50009</Codi>
+					<Nom>ESTRUCTURA DE DADES I ALGORITMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50019</Codi>
+					<Nom>INICIACI� A LA INTERACCI� PERSONA ORDINADOR</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50107</Codi>
+					<Nom>ESTRUCTURA DE DADES I DE LA INFORMACI�</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>34109808</Dni>
+			<Nom>Juan Miguel</Nom>
+			<Cognoms>Lopez Gil</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>12011</Codi>
+					<Nom>T�CNIQUES D'AVALUACI� DE SISTEMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12012</Codi>
+					<Nom>PROVES AMB USUARIS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12015</Codi>
+					<Nom>IPO EN EL TEIXIT EMPRESARIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12017</Codi>
+					<Nom>AULA + EMPRESA DISPOSITIUS M�BIL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12018</Codi>
+					<Nom>AULA+ EMPRESA LABORATORI</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12022</Codi>
+					<Nom>FONAMENTS DE L'ACCESSIBILITAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12023</Codi>
+					<Nom>ESPECIALITZACI� EN ACCESSIBILITAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50005</Codi>
+					<Nom>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACI�</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40889337</Dni>
+			<Nom>Toni</Nom>
+			<Cognoms>Granollers Saltiveri</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 70 27 50</Telefon>
+			<Fax/>
+			<Ubicacio>Cappont - EPS - 3.10</Ubicacio>
+			<Web>http://griho.udl.es/catala/equip/invest/granollers.html</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>6524</Codi>
+					<Nom>REDACCI� I PRESENTACI� DE PROJECTES D'ENGINYERIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11503</Codi>
+					<Nom>ENGINYERIA DE SOFTWARE II</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11529</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12000</Codi>
+					<Nom>PSICOLOGIA I FACTORS HUMANS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12003</Codi>
+					<Nom>DISSENY INDUSTRIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12008</Codi>
+					<Nom>INICIACI� A L'ENGINYERIA DE LA USABILITAT I AL  DCU</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12009</Codi>
+					<Nom>T�CNIQUES DE PROTOTIPAT</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12015</Codi>
+					<Nom>IPO EN EL TEIXIT EMPRESARIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12018</Codi>
+					<Nom>AULA+ EMPRESA LABORATORI</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12038</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>30003</Codi>
+					<Nom>INFORM�TICA APLICADA A LA GESTI� D'EMPRESES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50019</Codi>
+					<Nom>INICIACI� A LA INTERACCI� PERSONA ORDINADOR</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50030</Codi>
+					<Nom>INTERACCI� PERSONA-ORDINADOR</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51001</Codi>
+					<Nom>ENGINYERIA DEL SOFTWARE II  </Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51047</Codi>
+					<Nom>PLANIFICACI� ESTRAT�GICA DE LES TECNOLOGIES DE LA INFORMACI� I LES COMUNICACIONS A L'EMPRESA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>46563779</Dni>
+			<Nom>Juan Manuel</Nom>
+			<Cognoms>Gimeno Illa</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 702737</Telefon>
+			<Fax/>
+			<Ubicacio>Despatx 3.20 EPS</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11506</Codi>
+					<Nom>LLENGUATGES INTERPRETATS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11518</Codi>
+					<Nom>PLATAFORMES DE DESENVOLUPAMENT D'APLICACIONS DE COMER� ELECTR�NIC</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50012</Codi>
+					<Nom>INICIACI� A L'ENGINYERIA DEL SOFTWARE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50013</Codi>
+					<Nom>AMPLIACI� DE L'ENGINYERIA DEL SOFTWARE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51030</Codi>
+					<Nom>PLATAFORMES DE DESENVOLUPAMENT D'APLICACIONS DE COMER� ELECTR�NIC</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>37382484</Dni>
+			<Nom>Rosa Maria</Nom>
+			<Cognoms>Gil Iranzo</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio> </Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>10201</Codi>
+					<Nom>TALLER D'INFORM�TICA I</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>10223</Codi>
+					<Nom>TALLER D'INFORM�TICA III</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11529</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12002</Codi>
+					<Nom>DISSENY GR�FIC</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12007</Codi>
+					<Nom>INICIACI� AL DISSENY DE SISTEMES WEB</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12013</Codi>
+					<Nom>MULTICULTURALITAT I INTERNACIONALITZACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12015</Codi>
+					<Nom>IPO EN EL TEIXIT EMPRESARIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12016</Codi>
+					<Nom>AULA + EMPRESA WEB</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12038</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>30003</Codi>
+					<Nom>INFORM�TICA APLICADA A LA GESTI� D'EMPRESES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50030</Codi>
+					<Nom>INTERACCI� PERSONA-ORDINADOR</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>46813187</Dni>
+			<Nom>Roberto</Nom>
+			<Cognoms>Garc�a Gonz�lez</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 70 27 42</Telefon>
+			<Fax/>
+			<Ubicacio>EPS 3.15</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11511</Codi>
+					<Nom>ENGINYERIA DE SOFTWARE III</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11529</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12015</Codi>
+					<Nom>IPO EN EL TEIXIT EMPRESARIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12016</Codi>
+					<Nom>AULA + EMPRESA WEB</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12018</Codi>
+					<Nom>AULA+ EMPRESA LABORATORI</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12020</Codi>
+					<Nom>FONAMENTS DE L'ARQUITECTURA DE LA INFORMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12021</Codi>
+					<Nom>ESPECIALITZACI� EN ARQUITECTURA DE LA INFORMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12038</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51002</Codi>
+					<Nom>ENGINYERIA DEL SOFTWARE III </Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>47690011</Dni>
+			<Nom>Xavier</Nom>
+			<Cognoms>Domingo Albin</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>30003</Codi>
+					<Nom>INFORM�TICA APLICADA A LA GESTI� D'EMPRESES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50005</Codi>
+					<Nom>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50013</Codi>
+					<Nom>AMPLIACI� DE L'ENGINYERIA DEL SOFTWARE</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43721243</Dni>
+			<Nom>Jordi</Nom>
+			<Cognoms>Agost Mor�</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 702743</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50020</Codi>
+					<Nom>LABORATORI DE SOFTWARE</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50030</Codi>
+					<Nom>INTERACCI� PERSONA-ORDINADOR</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40883260</Dni>
+			<Nom>Pantaleon</Nom>
+			<Cognoms>Villanueva Palacios</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 702743</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11510</Codi>
+					<Nom>DESENVOLUPAMENT D'APLICACIONS I SERVEIS WEB</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50005</Codi>
+					<Nom>METODOLOGIA I TECNOLOGIA DE LA PROGRAMACI�</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40840844</Dni>
+			<Nom>�ngel</Nom>
+			<Cognoms>Ros I Domingo</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>51047</Codi>
+					<Nom>PLANIFICACI� ESTRAT�GICA DE LES TECNOLOGIES DE LA INFORMACI� I LES COMUNICACIONS A L'EMPRESA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40898484</Dni>
+			<Nom>Josep M.</Nom>
+			<Cognoms>Ribo</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 702781</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11501</Codi>
+					<Nom>COMUNITATS I PROJECTES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11503</Codi>
+					<Nom>ENGINYERIA DE SOFTWARE II</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11510</Codi>
+					<Nom>DESENVOLUPAMENT D'APLICACIONS I SERVEIS WEB</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11518</Codi>
+					<Nom>PLATAFORMES DE DESENVOLUPAMENT D'APLICACIONS DE COMER� ELECTR�NIC</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50009</Codi>
+					<Nom>ESTRUCTURA DE DADES I ALGORITMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50107</Codi>
+					<Nom>ESTRUCTURA DE DADES I DE LA INFORMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51001</Codi>
+					<Nom>ENGINYERIA DEL SOFTWARE II  </Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51030</Codi>
+					<Nom>PLATAFORMES DE DESENVOLUPAMENT D'APLICACIONS DE COMER� ELECTR�NIC</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78075927</Dni>
+			<Nom>Marta</Nom>
+			<Cognoms>Oliva Sol�</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 702732</Telefon>
+			<Fax/>
+			<Ubicacio>EPS 3.11</Ubicacio>
+			<Web>http://griho.udl.cat/ca/membres/investigadors/membre_mOliva.html</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>11529</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12004</Codi>
+					<Nom>TECNOLOGIA DELS SISTEMES D'INFORMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12010</Codi>
+					<Nom>DISSENY DE SISTEMES INTERACTIUS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12012</Codi>
+					<Nom>PROVES AMB USUARIS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12015</Codi>
+					<Nom>IPO EN EL TEIXIT EMPRESARIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12018</Codi>
+					<Nom>AULA+ EMPRESA LABORATORI</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12019</Codi>
+					<Nom>M.PR�CTICUM</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12038</Codi>
+					<Nom>INICIACI� A LA RECERCA EN IPO</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50010</Codi>
+					<Nom>INICIACI� A LES BASES DE DADES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50017</Codi>
+					<Nom>AMPLIACI� DE BASES DE DADES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50107</Codi>
+					<Nom>ESTRUCTURA DE DADES I DE LA INFORMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50122</Codi>
+					<Nom>AMPLIACI� DE BASES DE DADES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43725447</Dni>
+			<Nom>Xavier</Nom>
+			<Cognoms>Pi�ol Esteban</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5507</Codi>
+					<Nom>PROGRAMACI� DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>30003</Codi>
+					<Nom>INFORM�TICA APLICADA A LA GESTI� D'EMPRESES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43740097</Dni>
+			<Nom>Ferran</Nom>
+			<Cognoms>Perdrix Sapi�a</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>973702740</Telefon>
+			<Fax/>
+			<Ubicacio>1.06 (EPS)</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>6524</Codi>
+					<Nom>REDACCI� I PRESENTACI� DE PROJECTES D'ENGINYERIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>10220</Codi>
+					<Nom>TALLER D'INFORM�TICA II</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>10223</Codi>
+					<Nom>TALLER D'INFORM�TICA III</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50010</Codi>
+					<Nom>INICIACI� A LES BASES DE DADES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50017</Codi>
+					<Nom>AMPLIACI� DE BASES DE DADES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50107</Codi>
+					<Nom>ESTRUCTURA DE DADES I DE LA INFORMACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50122</Codi>
+					<Nom>AMPLIACI� DE BASES DE DADES</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40896631</Dni>
+			<Nom>Montserrat</Nom>
+			<Cognoms>Sendin Veloso</Cognoms>
+			<Area_coneixement>LLENGUATGES I SISTEMES INFORM�TICS</Area_coneixement>
+			<Telefon>+34 973 702737</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5507</Codi>
+					<Nom>PROGRAMACI� DE COMPUTADORS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11502</Codi>
+					<Nom>ENGINYERIA DE SOFTWARE I</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12005</Codi>
+					<Nom>TECNOLOGIES D'INTERACCI�. ESTILS I PARADIGMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12011</Codi>
+					<Nom>T�CNIQUES D'AVALUACI� DE SISTEMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12015</Codi>
+					<Nom>IPO EN EL TEIXIT EMPRESARIAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12017</Codi>
+					<Nom>AULA + EMPRESA DISPOSITIUS M�BIL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50009</Codi>
+					<Nom>ESTRUCTURA DE DADES I ALGORITMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50030</Codi>
+					<Nom>INTERACCI� PERSONA-ORDINADOR</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51000</Codi>
+					<Nom>ENGINYERIA DEL SOFTWARE I</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78091304</Dni>
+			<Nom>Antoni</Nom>
+			<Cognoms>Lloret Badia</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>53031</Codi>
+					<Nom>SISTEMES DE CLIMATITZACI� NATURALS I ARTIFICIALS</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>39713454</Dni>
+			<Nom>Marc</Nom>
+			<Cognoms>Medrano</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973 003570</Telefon>
+			<Fax/>
+			<Ubicacio>0.14</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5515</Codi>
+					<Nom>ENGINYERIA T�RMICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>10212</Codi>
+					<Nom>ENERGIES ALTERNATIVES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11533</Codi>
+					<Nom>T�CNIQUES INSTRUMENTALS EN RECERCA EN ENERGIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12042</Codi>
+					<Nom>T�CNIQUES INSTRUMENTALS EN RECERCA EN ENERGIA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>39711390</Dni>
+			<Nom>Ingrid</Nom>
+			<Cognoms>Martorell i Boada</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>973 00 3705</Telefon>
+			<Fax/>
+			<Ubicacio>CREA 1.01</Ubicacio>
+			<Web>http://</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5530</Codi>
+					<Nom>GESTI� DE SISTEMES ENERG�TICS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5549</Codi>
+					<Nom>SISTEMES DE FRED I CLIMATITZACI�</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5552</Codi>
+					<Nom>PRODUCCI� DE L'ENERGIA T�RMICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11533</Codi>
+					<Nom>T�CNIQUES INSTRUMENTALS EN RECERCA EN ENERGIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12042</Codi>
+					<Nom>T�CNIQUES INSTRUMENTALS EN RECERCA EN ENERGIA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>47683626</Dni>
+			<Nom>Albert</Nom>
+			<Cognoms>Castell Casol</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973 003577</Telefon>
+			<Fax/>
+			<Ubicacio>CREA - Dptx. 0.07</Ubicacio>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>53032</Codi>
+					<Nom>CONSTRUCCI� SOSTENIBLE</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43505667</Dni>
+			<Nom>Luisa Fernanda</Nom>
+			<Cognoms>Cabeza Fabra</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973 003576</Telefon>
+			<Fax/>
+			<Ubicacio>Campus Cappont - Escola Polit�cnica Superior - CREA - Despatx 0.06</Ubicacio>
+			<Web>www.grea.udl.cat</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5515</Codi>
+					<Nom>ENGINYERIA T�RMICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5553</Codi>
+					<Nom>BESCANVIADORS DE CALOR EN LA IND�STRIA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>10212</Codi>
+					<Nom>ENERGIES ALTERNATIVES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>10234</Codi>
+					<Nom>TALLER D'ENERGIES ALTERNATIVES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11525</Codi>
+					<Nom>INTRODUCCI� A LA RECERCA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>12034</Codi>
+					<Nom>INTRODUCCI� A LA RECERCA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53031</Codi>
+					<Nom>SISTEMES DE CLIMATITZACI� NATURALS I ARTIFICIALS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53032</Codi>
+					<Nom>CONSTRUCCI� SOSTENIBLE</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43719435</Dni>
+			<Nom>Josep Francesc</Nom>
+			<Cognoms>Sola Fernandez</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5515</Codi>
+					<Nom>ENGINYERIA T�RMICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>39321184</Dni>
+			<Nom>Josep</Nom>
+			<Cognoms>Illa</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon/>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5514</Codi>
+					<Nom>ENGINYERIA FLU�DOMEC�NICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53016</Codi>
+					<Nom>INTRODUCCI� A LA TRANSFER�NCIA DE CALOR</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43704692</Dni>
+			<Nom>Josep</Nom>
+			<Cognoms>Eras Vila</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5515</Codi>
+					<Nom>ENGINYERIA T�RMICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5530</Codi>
+					<Nom>GESTI� DE SISTEMES ENERG�TICS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>5553</Codi>
+					<Nom>BESCANVIADORS DE CALOR EN LA IND�STRIA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>4510537</Dni>
+			<Nom>Pablo</Nom>
+			<Cognoms>Arce Maldonado</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>43730607</Dni>
+			<Nom>Antoni</Nom>
+			<Cognoms>Gil Pujol</Cognoms>
+			<Area_coneixement>M�QUINES I MOTORS T�RMICS</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>47684994</Dni>
+			<Nom>Marcel</Nom>
+			<Cognoms>Tresanchez Ribes</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>+34 973 702 760</Telefon>
+			<Fax/>
+			<Ubicacio>Escola Polit�cnica Superior - Lab. 2.04</Ubicacio>
+			<Web/>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>39910048</Dni>
+			<Nom>null</Nom>
+			<Cognoms>null</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>null</Telefon>
+			<Fax>null</Fax>
+			<Ubicacio>null</Ubicacio>
+			<Web>null</Web>
+			<Assignatures>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>78076866</Dni>
+			<Nom>Francesc</Nom>
+			<Cognoms>Colell Pons</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5532</Codi>
+					<Nom>INSTRUMENTACI� INDUSTRIAL</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40891031</Dni>
+			<Nom>Juan Antonio</Nom>
+			<Cognoms>Garriga Castillo</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>+34 973 702725</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50114</Codi>
+					<Nom>ELECTR�NICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50135</Codi>
+					<Nom>ROB�TICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40844158</Dni>
+			<Nom>Francisco</Nom>
+			<Cognoms>Claria Sancho</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>+34 973 702725</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>50117</Codi>
+					<Nom>TEORIA DE CIRCUITS</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50119</Codi>
+					<Nom>TRACTAMENT DEL SENYAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>51035</Codi>
+					<Nom>TRACTAMENT I MODULACI� DEL SENYAL</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40840164</Dni>
+			<Nom>Josep</Nom>
+			<Cognoms>Ribo Pablo</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>+34 973</Telefon>
+			<Fax/>
+			<Ubicacio/>
+			<Web/>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5508</Codi>
+					<Nom>FONAMENTS DE TECNOLOGIA EL�CTRICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50114</Codi>
+					<Nom>ELECTR�NICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50119</Codi>
+					<Nom>TRACTAMENT DEL SENYAL</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>53012</Codi>
+					<Nom>ELECTR�NICA APLICADA A L'EDIFICACI�</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+		<Professor>
+			<Dni>40893249</Dni>
+			<Nom>Jordi</Nom>
+			<Cognoms>Palacin</Cognoms>
+			<Area_coneixement>TECNOLOGIA ELECTR�NICA</Area_coneixement>
+			<Telefon>+34 973 702724</Telefon>
+			<Fax/>
+			<Ubicacio>Campus Cappont- Escola Politecnica Superior - Despatx 2.12</Ubicacio>
+			<Web>http://robotica.udl.es</Web>
+			<Assignatures>
+				<Assignatura>
+					<Codi>5508</Codi>
+					<Nom>FONAMENTS DE TECNOLOGIA EL�CTRICA</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>11528</Codi>
+					<Nom>DISSENY I CONTROL DE MECANISMES</Nom>
+				</Assignatura>
+				<Assignatura>
+					<Codi>50135</Codi>
+					<Nom>ROB�TICA</Nom>
+				</Assignatura>
+			</Assignatures>
+		</Professor>
+
+	</Professors>
+</Departament>
