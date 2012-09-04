@@ -31,6 +31,14 @@ graph.bind("swrc", SWRC)
 graph.bind("uni", UNI)
 # End create RDF Graph
 
+def remove_accents(s):
+    '''Quits accents and language specific characters of a string'''
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+
+def htmlize_string(string):
+    '''Make a HTML valid string (quits spaces, commas, dots and accents or language specific characters)'''
+    return remove_accents(string.replace(",", "").replace(".", "").replace(" ", ""))
+
 def get_teaching_soup(source):
     '''Return a BS4 object from a given URL'''
     # This method is temporary until we have a web service to get this data.
