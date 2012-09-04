@@ -5,6 +5,7 @@ from rdflib.graph import ConjunctiveGraph
 from rdflib import Namespace, URIRef, Literal, RDF, BNode
 from rdflib.collection import Collection
 
+import teaching_rdfizer
 import unicodedata
 
 #GLOBAL VARS
