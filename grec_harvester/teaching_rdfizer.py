@@ -7,7 +7,6 @@ from rdflib.collection import Collection
 
 from bs4 import BeautifulSoup
 import urllib2
-from harvest_rdfizer import htmlize_string
 
 import unicodedata
 
