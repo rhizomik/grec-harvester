@@ -83,3 +83,7 @@ def build_graph():
 def get_graph():
     build_graph()
     return graph
+
+if __name__ == "__main__":
+    build_graph()
+    print graph.serialize(format="pretty-xml")
