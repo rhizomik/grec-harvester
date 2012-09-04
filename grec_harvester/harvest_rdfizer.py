@@ -181,11 +181,8 @@ def rdfize_contract(pub_dict):
     graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi oficial"])))
 
 
-def rdfize_pub_list(pub_list, teach_bool):
+def rdfize_pub_list(pub_list):
     '''Translate the publication list structure to a RDF Graph structure'''
-    if teach_bool:
-        import teaching_rdfizer
-        graph = teaching_rdfizer.get_graph()
     for pub_dict in pub_list:
         if pub_dict.has_key(u"ISSN"):
             rdfize_journal_article(pub_dict)
