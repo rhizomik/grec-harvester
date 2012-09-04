@@ -6,6 +6,7 @@ from rdflib import Namespace, URIRef, Literal, RDF, BNode
 from rdflib.collection import Collection
 
 import teaching_rdfizer
+
 import unicodedata
 
 #GLOBAL VARS
@@ -20,7 +21,7 @@ UNI = Namespace("http://purl.org/weso/uni/uni.html#")
 #END GLOBAL VARS
 
 # Create the RDF Graph
-graph = ConjunctiveGraph()
+graph = teaching_rdfizer.get_graph()
 graph.bind("dc", DC)
 graph.bind("rdfs", RDFS)
 graph.bind("swrc", SWRC)
