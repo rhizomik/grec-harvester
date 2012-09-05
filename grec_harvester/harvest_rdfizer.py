@@ -141,13 +141,16 @@ def rdfize_input_common(pub_dict):
     graph.add((pub_uriref, SWRC.carriedOutBy, Literal(pub_dict[u"Institució"])))
 
     if pub_dict["Data d'inici"] != "":
-        graph.add((pub_uriref, DC.beginDate, Literal(pub_dict[u"Data d'inici"])))
+        data = "-".join(pub_dict["Data d'inici"].split("/")[::-1])
+        graph.add((pub_uriref, DC.beginDate, Literal(data)))
 
     if pub_dict["Data Fi"] != "":
-        graph.add((pub_uriref, DC.endDate, Literal(pub_dict[u"Data Fi"])))
+        data = "-".join(pub_dict["Data Fi"].split("/")[::-1])
+        graph.add((pub_uriref, DC.endDate, Literal(data)))
 
     if pub_dict["Data"] != "":
-        graph.add((pub_uriref, DC.date, Literal(pub_dict[u"Data"])))
+        data = "-".join(pub_dict["Data"].split("/")[::-1])
+        graph.add((pub_uriref, DC.date, Literal(data)))
 
     if pub_dict["Investigadors secundaris"] != []:
         graph.add((pub_uriref, SWRC.authors, Literal(pub_dict["Investigador principal"]+"; "+"; ".join(pub_dict["Investigadors secundaris"]))))
