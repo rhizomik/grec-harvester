@@ -54,7 +54,7 @@ def build_graph():
 
     for professor in prof_list:
         if not professor.find("nom").text == "null":
-            nom_n = " ".join([nom[0]+"." for nom in professor.find("nom").text.split(" ")])
+            nom_n = "".join([nom[0]+"." for nom in professor.find("nom").text.split(" ")])
             cognom_n = professor.find("cognoms").text.split(" ")[0]
             nom_complet =  cognom_n +", "+ nom_n
             nom_complet_html = htmlize_string(cognom_n +", "+ nom_n)
