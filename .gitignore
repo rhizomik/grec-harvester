@@ -4,3 +4,5 @@
 *.json
 .coverage
 htmlcov/
+pythontidy
+
