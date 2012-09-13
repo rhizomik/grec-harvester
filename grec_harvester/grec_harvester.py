@@ -41,11 +41,14 @@ def get_soup_from_url(url):
     return BeautifulSoup(urllib2.urlopen(url), "lxml", from_encoding="UTF8")
 
 
-def get_links_in_row(soup, rowname):
+def get_links_in_row(soup, rowname, offset):
     '''Get a list of links from a BS4 object and a row name'''
     print u"Filtering data by row name: "+ rowname
     fila_pubs = soup.find("td", text=re.compile("^"+ rowname +"$")).find_parent("tr")
-    link_list = [a["href"] for a in fila_pubs.find_all("a")]
+    cells = fila_pubs.find_all("td")
+    if offset != 0:
+        cells = cells[-(offset+1):-1]
+    link_list = [a["href"] for a in [cell.find("a") for cell in cells if cell.find("a") != None]]
     return link_list
 
 
@@ -176,12 +179,12 @@ def get_all_pubs_from_link_list(link_list):
     return publication_list
 
 
-def get_pubs_by_row_name(row_name):
+def get_pubs_by_row_name(row_name, offset):
     '''Retrieve all the publications by the row title'''
     url_obj = u'http://webgrec.udl.es/cgi-bin/DADREC/crcx1.cgi?PID=312186&IDI=CAT&FONT=3&QUE=CRXD&CRXDCODI=1605&CONSULTA=Fer+la+consulta'
     print "Getting DIEI data from GREC website"
     soup = get_soup_from_url(url_obj)
-    link_list = get_links_in_row(soup, row_name)
+    link_list = get_links_in_row(soup, row_name, offset)
     return get_all_pubs_from_link_list(link_list)
 
 
@@ -201,10 +204,15 @@ if __name__ == '__main__': # pragma: no cover
         help="Name of the file where the output will be written",
         type=str,
         required=True)
+    parser.add_argument("-o", "--offset",
+        help="Number of years to parse. (0 for all years)",
+        type=int,
+        default=0,
+        required=False)
     args = parser.parse_args()
 
     for row_title in args.rowtitle:
-        pubs = get_pubs_by_row_name(row_title)
+        pubs = get_pubs_by_row_name(row_title, args.offset)
         f = open(args.file, "w")
         if args.type == "json":
             f.write(simplejson.dumps(pubs, ensure_ascii = False).encode("utf8"))
