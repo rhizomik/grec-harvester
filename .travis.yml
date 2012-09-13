@@ -3,6 +3,4 @@ python: "2.7"
 # command to install dependencies
 install: "pip install -r requirements.txt --use-mirrors"
 # command to run tests
-script: 
-  - "python grec-harvester/test_grec_harvester.py"
-  - "python grec-harvester/test_harvest_rdfizer.py"
+script: "python grec-harvester/test_grec_harvester.py"
