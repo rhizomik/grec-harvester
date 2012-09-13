@@ -93,8 +93,8 @@ class test_get_links_in_row(TestCase):
             <td><a href="localhost">test</a></td>
             </tr>''', "lxml", from_encoding="UTF8")
 
-        expected = ["localhost", "localhost", "localhost"]
-        self.assertEquals(gh.get_links_in_row(soup, "Row name"), expected)
+        expected = ["localhost", "localhost"]
+        self.assertEquals(gh.get_links_in_row(soup, "Row name", 2), expected)
 
 
 class test_normalize_author_name(TestCase):
@@ -397,7 +397,7 @@ class test_get_pubs_by_row_name(TestCase):
         self.mocker_soup.result("anything")
 
         mocker_l = self.mocker_link.replace("grec_harvester.get_links_in_row")
-        mocker_l(ANY, ANY)
+        mocker_l(ANY, ANY, ANY)
         self.mocker_link.result(["something", "something"])
 
         mocker_p = self.mocker_pubs.replace("grec_harvester.get_all_pubs_from_link_list")
@@ -420,7 +420,7 @@ class test_get_pubs_by_row_name(TestCase):
     def test_returns_correct_object(self):
         self.setUpMocks()
 
-        result = gh.get_pubs_by_row_name("Rowname")
+        result = gh.get_pubs_by_row_name("Rowname", 3)
         self.assertEquals(type(result), list)
 
         self.tearDownMocks()
@@ -428,7 +428,7 @@ class test_get_pubs_by_row_name(TestCase):
     def test_returns_correct_value(self):
         self.setUpMocks()
 
-        result = gh.get_pubs_by_row_name("Rowname")
+        result = gh.get_pubs_by_row_name("Rowname", 3)
         expected = ["Expected result"]
         self.assertEquals(result, expected)
 
