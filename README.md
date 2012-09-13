@@ -19,5 +19,5 @@ from grec_harvester import grec_harvester as gh
 rdf_data = gh.rdfize_pub_list(get_pubs_by_row_name("row_name"))
 ```
 
-## Travis status
+## Travis CI Status
 [![Build Status](https://secure.travis-ci.org/davidkaste/grec-harvester.png)](http://travis-ci.org/davidkaste/grec-harvester)
