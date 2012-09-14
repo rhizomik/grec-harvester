@@ -7,8 +7,8 @@
 ### Getting requirements
 `$ pip install -r requirements.txt`
 
-### Get the data from the console
-`$ python grec_harvester/grec_harvester.py -f output_file -t {rdf | json} "row_title_1" "row_title_2" ...`
+### Get the data from a command line
+`$ python grec_harvester/grec_harvester.py -f output_file -t {rdf | json} -o (number of columns) "row_title_1" "row_title_2" ...`
 
 ### Get the data from another python script
 
