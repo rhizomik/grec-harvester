@@ -186,6 +186,8 @@ def rdfize_contract(pub_dict):
 
     graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi oficial"])))
 
+def rdfize_patent(pub_dict):
+    pass
 
 def rdfize_pub_list(pub_list):
     '''Translate the publication list structure to a RDF Graph structure'''
@@ -202,6 +204,8 @@ def rdfize_pub_list(pub_list):
             rdfize_research_project(pub_dict)
         elif pub_dict.has_key(u"Codi UE"):
             rdfize_european_project(pub_dict)
+        elif pub_dict.has_key(u"Número de registre"):
+            rdfize_patent(pub_dict)
         else:
             rdfize_contract(pub_dict)
     return graph.serialize(format="pretty-xml")
