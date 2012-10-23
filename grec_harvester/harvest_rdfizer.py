@@ -96,6 +96,7 @@ def rdfize_book_article(pub_dict):
 
 
 def rdfize_thesis(pub_dict):
+    if pub_dict[u"Clau"] != "Tesi Doctoral" and pub_dict[u"Clau"] != "Tesi Doctoral Europea": return
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
