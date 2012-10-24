@@ -17,7 +17,6 @@ DC = Namespace("http://purl.org/dc/terms/")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 SWRC = Namespace("http://swrc.ontoware.org/ontology#")
 UNI = Namespace("http://purl.org/weso/uni/uni.html#")
-
 #END GLOBAL VARS
 
 # Create the RDF Graph
@@ -52,6 +51,7 @@ def rdfize_output_common(pub_dict):
             graph.add((autor_uriref, RDF.type, DC.author))
             graph.add((pub_uriref, DC.author, autor_uriref))
             graph.add((autor_uriref, RDFS.label, Literal(autor)))
+            graph.add((autor_uriref, SWRC.note, Literal(htmlize_string(autor))))
 
 
 def rdfize_pages(pub_dict):
@@ -141,6 +141,7 @@ def rdfize_input_common(pub_dict):
     graph.add((pub_uriref, SWRC.head, director_uriref))
     graph.add((director_uriref, RDF.type, SWRC.head))
     graph.add((director_uriref, RDFS.label, Literal(pub_dict["Investigador principal"])))
+    graph.add((director_uriref, SWRC.note, Literal(htmlize_string(pub_dict["Investigador principal"]))))
 
     graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
 
@@ -169,6 +170,7 @@ def rdfize_input_common(pub_dict):
             graph.add((pub_uriref, SWRC.member, researcher_uriref))
             graph.add((researcher_uriref, RDF.type, SWRC.member))
             graph.add((researcher_uriref, RDFS.label, Literal(researcher)))
+            graph.add((researcher_uriref, SWRC.note, Literal(htmlize_string(researcher))))
 
 
 def rdfize_research_project(pub_dict):
