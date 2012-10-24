@@ -54,6 +54,7 @@ def build_graph():
 
     for professor in prof_list:
         if not professor.find("nom").text == "null":
+            nom_sencer = professor.find("nom").text +" "+ professor.find("cognoms").text
             nom_n = "".join([nom[0]+"." for nom in professor.find("nom").text.split(" ")])
             cognom_n = professor.find("cognoms").text.split(" ")[0]
             nom_complet =  cognom_n +", "+ nom_n
@@ -61,6 +62,8 @@ def build_graph():
             profe_uri = URIRef(pub_base_uri +"/"+ uri_person +"/"+ nom_complet_html)
             graph.add((profe_uri, RDF.type, UNI.Professor))
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
+            graph.add((profe_uri, SWRC.name, Literal(nom_sencer)))
+            graph.add((profe_uri, SWRC.note, Literal(nom_complet_html)))
             graph.add((profe_uri, DC.identifier, Literal(professor.find("dni").text)))
             if not professor.find("assignatures").text == "":
                 for subject in professor.find_all("assignatura"):
