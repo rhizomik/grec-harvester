@@ -125,6 +125,15 @@ def rdfize_congress_paper(pub_dict):
     graph.add((pub_uriref, SWRC.Meeting, Literal(pub_dict[u"Congrés"])))
 
 
+def rdfize_patent(pub_dict):
+    rdfize_output_common(pub_dict)
+    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+
+    graph.add((pub_uriref, RDF.type, DC.Policy))
+    graph.add((pub_uriref, DC.Location, Literal(pub_dict[u"Països"])))
+    graph.add((pub_uriref, SWRC.Organization, Literal(pub_dict["Organismes"])))
+
+
 def rdfize_input_common(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
@@ -185,9 +194,6 @@ def rdfize_contract(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi oficial"])))
-
-def rdfize_patent(pub_dict):
-    pass
 
 def rdfize_pub_list(pub_list):
     '''Translate the publication list structure to a RDF Graph structure'''
