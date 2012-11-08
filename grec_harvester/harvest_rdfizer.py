@@ -48,10 +48,10 @@ def rdfize_output_common(pub_dict):
         graph.add((pub_uriref, SWRC.authors, Literal("; ".join(pub_dict[u"Autors"]))))
         for autor in pub_dict[u"Autors"]:
             autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
-            graph.add((autor_uriref, RDF.type, DC.author))
+            graph.add((autor_uriref, RDF.type, SWRC.Person))
             graph.add((pub_uriref, DC.author, autor_uriref))
             graph.add((autor_uriref, RDFS.label, Literal(autor)))
-            graph.add((autor_uriref, SWRC.note, Literal(htmlize_string(autor))))
+            graph.add((autor_uriref, DC.identifier, Literal(htmlize_string(autor))))
 
 
 def rdfize_pages(pub_dict):
@@ -103,13 +103,13 @@ def rdfize_thesis(pub_dict):
     graph.add((pub_uriref, RDF.type, SWRC.Thesis))
     for autor in pub_dict[u"Autor"]:
         autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
-        graph.add((pub_uriref, RDF.type, DC.author))
+        graph.add((pub_uriref, RDF.type, SWRC.Person))
         graph.add((pub_uriref, DC.author, autor_uriref))
         graph.add((autor_uriref, RDFS.label, Literal(autor)))
 
     for director in pub_dict[u"Director"]:
         director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(director))
-        graph.add((pub_uriref, RDF.type, SWRC.supervisor))
+        graph.add((pub_uriref, RDF.type, SWRC.Person))
         graph.add((pub_uriref, SWRC.supervisor, director_uriref))
         graph.add((director_uriref, RDFS.label, Literal(director)))
 
@@ -129,9 +129,9 @@ def rdfize_patent(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, DC.Policy))
-    graph.add((pub_uriref, DC.Location, Literal(pub_dict[u"Països"])))
-    graph.add((pub_uriref, SWRC.Organization, Literal(pub_dict["Organismes"])))
+    graph.add((pub_uriref, RDF.type, SWRC.Patent))
+    graph.add((pub_uriref, SWRC.location, Literal(pub_dict[u"Països"])))
+    graph.add((pub_uriref, SWRC.organization, Literal(pub_dict["Organismes"])))
 
 
 def rdfize_input_common(pub_dict):
@@ -139,9 +139,9 @@ def rdfize_input_common(pub_dict):
 
     director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(pub_dict["Investigador principal"]))
     graph.add((pub_uriref, SWRC.head, director_uriref))
-    graph.add((director_uriref, RDF.type, SWRC.head))
+    graph.add((director_uriref, RDF.type, SWRC.Person))
     graph.add((director_uriref, RDFS.label, Literal(pub_dict["Investigador principal"])))
-    graph.add((director_uriref, SWRC.note, Literal(htmlize_string(pub_dict["Investigador principal"]))))
+    graph.add((director_uriref, DC.identifier, Literal(htmlize_string(pub_dict["Investigador principal"]))))
 
     graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
 
@@ -168,7 +168,7 @@ def rdfize_input_common(pub_dict):
         for researcher in pub_dict["Investigadors secundaris"]:
             researcher_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(researcher))
             graph.add((pub_uriref, SWRC.member, researcher_uriref))
-            graph.add((researcher_uriref, RDF.type, SWRC.member))
+            graph.add((researcher_uriref, RDF.type, SWRC.Person))
             graph.add((researcher_uriref, RDFS.label, Literal(researcher)))
             graph.add((researcher_uriref, SWRC.note, Literal(htmlize_string(researcher))))
 
@@ -195,6 +195,7 @@ def rdfize_contract(pub_dict):
     rdfize_input_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
+    graph.add((pub_uriref, RDF.type, SWRC.Contract))
     graph.add((pub_uriref, DC.identifier, Literal(pub_dict["Codi oficial"])))
 
 def rdfize_pub_list(pub_list):
