@@ -60,7 +60,7 @@ def build_graph():
             nom_complet =  cognom_n +", "+ nom_n
             nom_complet_html = htmlize_string(cognom_n +", "+ nom_n)
             profe_uri = URIRef(pub_base_uri +"/"+ uri_person +"/"+ nom_complet_html)
-            graph.add((profe_uri, RDF.type, UNI.Professor))
+            graph.add((profe_uri, RDF.type, SWRC.FacultyMember))
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
             graph.add((profe_uri, SWRC.name, Literal(nom_sencer)))
             graph.add((profe_uri, SWRC.note, Literal(nom_complet_html)))
