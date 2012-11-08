@@ -71,7 +71,7 @@ def build_graph():
                     graph.add((subject_uri, DC.identifier, Literal(subject.find("codi").text)))
                     graph.add((subject_uri, RDF.type, UNI.Subject))
                     graph.add((subject_uri, RDFS.label, Literal(subject.find("nom").text)))
-                    graph.add((subject_uri, SWRC.CarriedOutBy, profe_uri))
+                    graph.add((subject_uri, SWRC.carriedOutBy, profe_uri))
 
             if not professor.find("telefon").text == "":
                 graph.add((profe_uri, DC.phone, Literal(professor.find("telefon").text)))
