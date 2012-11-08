@@ -63,7 +63,7 @@ def build_graph():
             graph.add((profe_uri, RDF.type, SWRC.FacultyMember))
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
             graph.add((profe_uri, SWRC.name, Literal(nom_sencer)))
-            graph.add((profe_uri, SWRC.note, Literal(nom_complet_html)))
+            graph.add((profe_uri, DC.identifier, Literal(nom_complet_html)))
             graph.add((profe_uri, DC.identifier, Literal(professor.find("dni").text)))
             if not professor.find("assignatures").text == "":
                 for subject in professor.find_all("assignatura"):
