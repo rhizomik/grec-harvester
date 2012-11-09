@@ -44,6 +44,8 @@ def rdfize_output_common(pub_dict):
     graph.add((pub_uriref, DC.year, Literal(pub_dict[u"Any"])))
     graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
 
+    graph.add((pub_uriref, RDF.type, SWRC.Publication))
+
     if pub_dict.has_key(u"Autors"):
         graph.add((pub_uriref, SWRC.authors, Literal("; ".join(pub_dict[u"Autors"]))))
         for autor in pub_dict[u"Autors"]:
@@ -66,7 +68,7 @@ def rdfize_journal_article(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, SWRC.Publication))
+    graph.add((pub_uriref, RDF.type, SWRC.Article))
     rdfize_pages(pub_dict)
 
     if pub_dict["ISSN"] != "":
@@ -121,7 +123,7 @@ def rdfize_congress_paper(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, SWRC.Article))
+    graph.add((pub_uriref, RDF.type, SWRC.InProceedings))
     graph.add((pub_uriref, SWRC.Meeting, Literal(pub_dict[u"Congrés"])))
 
 
