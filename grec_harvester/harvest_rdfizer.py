@@ -162,6 +162,7 @@ def rdfize_input_common(pub_dict):
     if pub_dict["Data"] != "":
         data = "-".join(pub_dict["Data"].split("/")[::-1])
         graph.add((pub_uriref, DC.date, Literal(data)))
+        graph.add((pub_uriref, DC.year, Literal(data.split("-")[0])))
 
     if pub_dict["Investigadors secundaris"] != []:
         graph.add((pub_uriref, SWRC.authors, Literal(pub_dict["Investigador principal"]+"; "+"; ".join(pub_dict["Investigadors secundaris"]))))
