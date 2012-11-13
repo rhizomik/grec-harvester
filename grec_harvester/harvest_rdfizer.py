@@ -38,8 +38,8 @@ def htmlize_string(string):
     return remove_accents(string.replace(",", "").replace(".", "").replace(" ", ""))
 
 
-def rdfize_output_common(pub_dict):
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+def rdfize_output_common(pub_dict, puburi):
+    pub_uriref = URIRef(pub_base_uri+"/"+puburi+"/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, DC.year, Literal(pub_dict[u"Any"])))
     graph.add((pub_uriref, DC.title, Literal(pub_dict[u"Títol"])))
@@ -56,8 +56,8 @@ def rdfize_output_common(pub_dict):
             graph.add((autor_uriref, DC.identifier, Literal(htmlize_string(autor))))
 
 
-def rdfize_pages(pub_dict):
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+def rdfize_pages(pub_dict, puburi):
+    pub_uriref = URIRef(pub_base_uri+"/"+puburi+"/"+pub_dict["Id. GREC"])
     if pub_dict[u"Pàgina inicial"] != "" or pub_dict[u"Pàgina final"] != "":
         graph.add((pub_uriref, SWRC.pages, Literal(pub_dict[u"Pàgina inicial"] +"-"+ pub_dict[u"Pàgina final"])))
     if pub_dict["Volum"] != "":
@@ -66,11 +66,11 @@ def rdfize_pages(pub_dict):
 
 def rdfize_journal_article(pub_dict):
     if "docent" in pub_dict["Clau"].split(" ") or "docents" in pub_dict["Clau"].split(" "): return
-    rdfize_output_common(pub_dict)
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+    rdfize_output_common(pub_dict, "article")
+    pub_uriref = URIRef(pub_base_uri+"/article/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.Article))
-    rdfize_pages(pub_dict)
+    rdfize_pages(pub_dict, "article")
 
     if pub_dict["ISSN"] != "":
         journal_uriref = URIRef(pub_base_uri+"/journal/"+pub_dict["ISSN"])
@@ -82,11 +82,11 @@ def rdfize_journal_article(pub_dict):
 
 def rdfize_book_article(pub_dict):
     if "docent" in pub_dict["Clau"].split(" ") or "docents" in pub_dict["Clau"].split(" "): return
-    rdfize_output_common(pub_dict)
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+    rdfize_output_common(pub_dict, "inbook")
+    pub_uriref = URIRef(pub_base_uri+"/inbook/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.InBook))
-    rdfize_pages(pub_dict)
+    rdfize_pages(pub_dict, "inbook")
 
     if pub_dict["ISBN"] != "":
         book_uriref = URIRef(pub_base_uri+"/book/"+pub_dict["ISBN"])
@@ -101,8 +101,8 @@ def rdfize_book_article(pub_dict):
 
 def rdfize_thesis(pub_dict):
     if pub_dict[u"Clau"] != "Tesi Doctoral" and pub_dict[u"Clau"] != "Tesi Doctoral Europea": return
-    rdfize_output_common(pub_dict)
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+    rdfize_output_common(pub_dict, "phdthesis")
+    pub_uriref = URIRef(pub_base_uri+"/phdthesis/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.PhDThesis))
     for autor in pub_dict[u"Autor"]:
@@ -122,16 +122,16 @@ def rdfize_thesis(pub_dict):
 
 
 def rdfize_congress_paper(pub_dict):
-    rdfize_output_common(pub_dict)
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+    rdfize_output_common(pub_dict, "inproceedings")
+    pub_uriref = URIRef(pub_base_uri+"/inproceedings/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.InProceedings))
     graph.add((pub_uriref, SWRC.atEvent, Literal(pub_dict[u"Congrés"])))
 
 
 def rdfize_patent(pub_dict):
-    rdfize_output_common(pub_dict)
-    pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
+    rdfize_output_common(pub_dict, "patent")
+    pub_uriref = URIRef(pub_base_uri+"/patent/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.Patent))
     graph.add((pub_uriref, SWRC.location, Literal(pub_dict[u"Països"])))
