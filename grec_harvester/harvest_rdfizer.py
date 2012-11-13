@@ -105,14 +105,14 @@ def rdfize_thesis(pub_dict):
     graph.add((pub_uriref, RDF.type, SWRC.Thesis))
     for autor in pub_dict[u"Autor"]:
         autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
-        graph.add((pub_uriref, RDF.type, SWRC.Person))
-        graph.add((pub_uriref, DC.author, autor_uriref))
+        graph.add((autor_uriref, RDF.type, SWRC.Person))
+        graph.add((autor_uriref, DC.author, autor_uriref))
         graph.add((autor_uriref, RDFS.label, Literal(autor)))
 
     for director in pub_dict[u"Director"]:
         director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(director))
-        graph.add((pub_uriref, RDF.type, SWRC.Person))
-        graph.add((pub_uriref, SWRC.supervisor, director_uriref))
+        graph.add((director_uriref, RDF.type, SWRC.Person))
+        graph.add((director_uriref, SWRC.supervisor, director_uriref))
         graph.add((director_uriref, RDFS.label, Literal(director)))
 
     graph.add((pub_uriref, SWRC.school, Literal(pub_dict[u"Facultat"])))
