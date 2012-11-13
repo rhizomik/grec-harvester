@@ -102,7 +102,7 @@ def rdfize_thesis(pub_dict):
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
-    graph.add((pub_uriref, RDF.type, SWRC.Thesis))
+    graph.add((pub_uriref, RDF.type, SWRC.PhDThesis))
     for autor in pub_dict[u"Autor"]:
         autor_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(autor))
         graph.add((autor_uriref, RDF.type, SWRC.Person))
@@ -124,7 +124,7 @@ def rdfize_congress_paper(pub_dict):
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, RDF.type, SWRC.InProceedings))
-    graph.add((pub_uriref, SWRC.Meeting, Literal(pub_dict[u"Congrés"])))
+    graph.add((pub_uriref, SWRC.atEvent, Literal(pub_dict[u"Congrés"])))
 
 
 def rdfize_patent(pub_dict):
@@ -156,6 +156,7 @@ def rdfize_input_common(pub_dict):
     if pub_dict["Data d'inici"] != "":
         data = "-".join(pub_dict["Data d'inici"].split("/")[::-1])
         graph.add((pub_uriref, DC.beginDate, Literal(data)))
+        graph.add((pub_uriref, DC.year, Literal(data.split("-")[0])))
 
     if pub_dict["Data Fi"] != "":
         data = "-".join(pub_dict["Data Fi"].split("/")[::-1])
@@ -164,7 +165,6 @@ def rdfize_input_common(pub_dict):
     if pub_dict["Data"] != "":
         data = "-".join(pub_dict["Data"].split("/")[::-1])
         graph.add((pub_uriref, DC.date, Literal(data)))
-        graph.add((pub_uriref, DC.year, Literal(data.split("-")[0])))
 
     if pub_dict["Investigadors secundaris"] != []:
         graph.add((pub_uriref, SWRC.authors, Literal(pub_dict["Investigador principal"]+"; "+"; ".join(pub_dict["Investigadors secundaris"]))))
