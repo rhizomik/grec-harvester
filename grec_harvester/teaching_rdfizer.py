@@ -64,7 +64,7 @@ def build_graph():
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
             graph.add((profe_uri, SWRC.name, Literal(nom_sencer)))
             graph.add((profe_uri, DC.identifier, Literal(nom_complet_html)))
-            graph.add((profe_uri, DC.identifier, Literal(professor.find("dni").text)))
+            graph.add((profe_uri, DC.LicenseDocument, Literal(professor.find("dni").text)))
             if not professor.find("assignatures").text == "":
                 for subject in professor.find_all("assignatura"):
                     subject_uri = URIRef(pub_base_uri +"/"+ uri_sub +"/"+ subject.find("codi").text)
