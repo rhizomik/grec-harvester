@@ -65,6 +65,7 @@ def rdfize_pages(pub_dict):
 
 
 def rdfize_journal_article(pub_dict):
+    if "docent" in pub_dict["Clau"].split(" ") or "docents" in pub_dict["Clau"].split(" "): return
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
@@ -80,6 +81,7 @@ def rdfize_journal_article(pub_dict):
 
 
 def rdfize_book_article(pub_dict):
+    if "docent" in pub_dict["Clau"].split(" ") or "docents" in pub_dict["Clau"].split(" "): return
     rdfize_output_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
