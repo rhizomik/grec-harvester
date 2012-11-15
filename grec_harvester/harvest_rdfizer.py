@@ -29,16 +29,23 @@ graph.bind("uni", UNI)
 
 
 def remove_accents(s):
-    '''Quits accents and language specific characters of a string'''
+    '''
+    Quits accents and language specific characters of a string
+    '''
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
 
 def htmlize_string(string):
-    '''Make a HTML valid string (quits spaces, commas, dots and accents or language specific characters)'''
+    '''
+    Make a HTML valid string (quits spaces, commas, dots and accents or language specific characters)
+    '''
     return remove_accents(string.replace(",", "").replace(".", "").replace(" ", ""))
 
 
 def rdfize_output_common(pub_dict, puburi):
+    '''
+    Adds common fields for outputs un the RDF Graph.
+    '''
     pub_uriref = URIRef(pub_base_uri+"/"+puburi+"/"+pub_dict["Id. GREC"])
 
     graph.add((pub_uriref, DC.year, Literal(pub_dict[u"Any"])))
@@ -57,6 +64,9 @@ def rdfize_output_common(pub_dict, puburi):
 
 
 def rdfize_pages(pub_dict, puburi):
+    '''
+    Adds pages fields in RDF Graph
+    '''
     pub_uriref = URIRef(pub_base_uri+"/"+puburi+"/"+pub_dict["Id. GREC"])
     if pub_dict[u"Pàgina inicial"] != "" or pub_dict[u"Pàgina final"] != "":
         graph.add((pub_uriref, SWRC.pages, Literal(pub_dict[u"Pàgina inicial"] +"-"+ pub_dict[u"Pàgina final"])))
@@ -65,6 +75,9 @@ def rdfize_pages(pub_dict, puburi):
 
 
 def rdfize_journal_article(pub_dict):
+    '''
+    Add common article fields into the RDF graph.
+    '''
     if "docent" in pub_dict["Clau"].split(" ") or "docents" in pub_dict["Clau"].split(" "): return
     rdfize_output_common(pub_dict, "article")
     pub_uriref = URIRef(pub_base_uri+"/article/"+pub_dict["Id. GREC"])
@@ -81,6 +94,9 @@ def rdfize_journal_article(pub_dict):
 
 
 def rdfize_book_article(pub_dict):
+    '''
+    Add common inbook fields into the RDF graph.
+    '''
     if "docent" in pub_dict["Clau"].split(" ") or "docents" in pub_dict["Clau"].split(" "): return
     rdfize_output_common(pub_dict, "inbook")
     pub_uriref = URIRef(pub_base_uri+"/inbook/"+pub_dict["Id. GREC"])
@@ -100,6 +116,9 @@ def rdfize_book_article(pub_dict):
 
 
 def rdfize_thesis(pub_dict):
+    '''
+    Add common PhD Thesis fields into the RDF graph.
+    '''
     if pub_dict[u"Clau"] != "Tesi Doctoral" and pub_dict[u"Clau"] != "Tesi Doctoral Europea": return
     rdfize_output_common(pub_dict, "phdthesis")
     pub_uriref = URIRef(pub_base_uri+"/phdthesis/"+pub_dict["Id. GREC"])
@@ -122,6 +141,9 @@ def rdfize_thesis(pub_dict):
 
 
 def rdfize_congress_paper(pub_dict):
+    '''
+    Add common InProceedings fields into the RDF graph.
+    '''
     rdfize_output_common(pub_dict, "inproceedings")
     pub_uriref = URIRef(pub_base_uri+"/inproceedings/"+pub_dict["Id. GREC"])
 
@@ -130,6 +152,9 @@ def rdfize_congress_paper(pub_dict):
 
 
 def rdfize_patent(pub_dict):
+    '''
+    Add common patent fields into the RDF graph.
+    '''
     rdfize_output_common(pub_dict, "patent")
     pub_uriref = URIRef(pub_base_uri+"/patent/"+pub_dict["Id. GREC"])
 
@@ -139,6 +164,9 @@ def rdfize_patent(pub_dict):
 
 
 def rdfize_input_common(pub_dict):
+    '''
+    Add common fields for inputs into the RDF graph.
+    '''
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
     director_uriref = URIRef(pub_base_uri+"/"+uri_person+"/"+htmlize_string(pub_dict["Investigador principal"]))
@@ -179,6 +207,9 @@ def rdfize_input_common(pub_dict):
 
 
 def rdfize_research_project(pub_dict):
+    '''
+    Add common research project fields into the RDF graph.
+    '''
     rdfize_input_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
@@ -188,6 +219,9 @@ def rdfize_research_project(pub_dict):
 
 
 def rdfize_european_project(pub_dict):
+    '''
+    Add common European project fields into the RDF graph.
+    '''
     rdfize_input_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
@@ -197,6 +231,9 @@ def rdfize_european_project(pub_dict):
 
 
 def rdfize_contract(pub_dict):
+    '''
+    Add common contract fields into the RDF graph.
+    '''
     rdfize_input_common(pub_dict)
     pub_uriref = URIRef(pub_base_uri+"/"+uri_pub+"/"+pub_dict["Id. GREC"])
 
