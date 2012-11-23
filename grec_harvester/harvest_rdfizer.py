@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from rdflib.graph import ConjunctiveGraph
-from rdflib import Namespace, URIRef, Literal, RDF, BNode
-from rdflib.collection import Collection
+from rdflib import Namespace, URIRef, Literal, RDF
 
 import teaching_rdfizer
 
