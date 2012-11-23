@@ -16,8 +16,8 @@ uri_sub = "subject"
 DC = Namespace("http://purl.org/dc/terms/")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 SWRC = Namespace("http://swrc.ontoware.org/ontology#")
-UNI = Namespace("http://purl.org/weso/uni/uni.html#")
-
+AIISO = Namespace("http://purl.org/vocab/aiiso/schema#")
+TEACH = Namespace("http://linkedscience.org/teach/ns#")
 #END GLOBAL VARS
 
 # Create the RDF Graph
@@ -25,7 +25,8 @@ graph = ConjunctiveGraph()
 graph.bind("dc", DC)
 graph.bind("rdfs", RDFS)
 graph.bind("swrc", SWRC)
-graph.bind("uni", UNI)
+graph.bind("aiiso", AIISO)
+graph.bind("teach", TEACH)
 # End create RDF Graph
 
 def remove_accents(s):
