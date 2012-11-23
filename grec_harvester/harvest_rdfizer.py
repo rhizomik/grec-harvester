@@ -259,4 +259,5 @@ def rdfize_pub_list(pub_list):
             rdfize_patent(pub_dict)
         else:
             rdfize_contract(pub_dict)
-    return graph.serialize(format="pretty-xml")
+
+    return graph.serialize(format="n3")
