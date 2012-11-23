@@ -39,15 +39,55 @@ def htmlize_string(string):
 
 def get_teaching_soup(source):
     '''Return a BS4 object from a given URL'''
-    # This method is temporary until we have a web service to get this data.
-    # At that moment, switch comments between the following lines.
+    # This funcion reads data from the output of the udl-xml-retriever project
+    # https://github.com/davidkaste/udl-xml-retriever
 
-    return BeautifulSoup(open("docencia.xml"), "lxml", from_encoding="UTF8")
+    return BeautifulSoup(open(source), "lxml", from_encoding="UTF8")
     #return BeautifulSoup(urllib2.urlopen(source), "lxml", from_encoding="UTF8")
 
+def build_career_graph(source_folder):
+    import os
+    file_list = os.listdir(os.path.abspath(source_folder))
+    file_list.pop(file_list.index("dept.xml"))
 
-def build_graph():
-    soup = get_teaching_soup("nothing")
+    for fitxer in file_list:
+        soup = BeautifulSoup(open(source_folder+fitxer), "lxml", from_encoding="UTF8")
+
+        nom_carrera = soup.find("pla").find("nom").text
+        codi_carrera = soup.find("pla").find("codi").text
+
+        carrera_uri = URIRef(pub_base_uri+"/programme/"+codi_carrera)
+        graph.add((carrera_uri, RDF.type, AIISO.Programme))
+        graph.add((carrera_uri, DC.identifier, Literal(nom_carrera)))
+        graph.add((carrera_uri, RDFS.label, Literal(nom_carrera)))
+
+        subject_list = soup.find_all("assignatura")
+        for subject in subject_list:
+            subject_uri = URIRef(pub_base_uri+"/"+uri_sub+"/"+subject.find("codi").text)
+            graph.add((subject_uri, RDF.type, AIISO.Subject))
+            graph.add((subject_uri, DC.identifier, Literal(subject.find("codi").text)))
+            graph.add((subject_uri, RDFS.label, Literal(subject.find("nom").text)))
+
+            if subject.find("tipus").text == "T":
+                graph.add((subject_uri, DC.type, Literal("Troncal")))
+            elif subject.find("tipus").text == "O":
+                graph.add((subject_uri, DC.typel, Literal("Optativa")))
+            elif subject.find("tipus").text == "B":
+                graph.add((subject_uri, DC.type, Literal("Obligatòria")))
+            elif subject.find("tipus").text == "L":
+                graph.add((subject_uri, DC.type, Literal("Lliure elecció")))
+
+            graph.add((subject_uri, TEACH.module, Literal(subject.find("curs").text)))
+            graph.add((subject_uri, TEACH.ects, Literal(subject.find("credits").text)))
+            graph.add((subject_uri, TEACH.studyProgram, carrera_uri))
+
+def build_graph(path):
+    soup = BeautifulSoup(open(path+"dept.xml"), "lxml", from_encoding="UTF8")
+
+    dept_uri = URIRef(pub_base_uri+"/dept/"+soup.find("departament").find("codi").text)
+    graph.add((dept_uri, RDF.type, AIISO.Department))
+    graph.add((dept_uri, DC.identifier, Literal(soup.find("departament").find("codi").text)))
+    graph.add((dept_uri, RDFS.label, Literal(soup.find("departament").find("nom").text)))
 
     prof_list = soup.find_all("professor")
 
@@ -59,18 +99,24 @@ def build_graph():
             nom_complet =  cognom_n +", "+ nom_n
             nom_complet_html = htmlize_string(cognom_n +", "+ nom_n)
             profe_uri = URIRef(pub_base_uri +"/"+ uri_person +"/"+ nom_complet_html)
-            graph.add((profe_uri, RDF.type, SWRC.FacultyMember))
+            graph.add((profe_uri, RDF.type, SWRC.AcademicStaff))
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
             graph.add((profe_uri, SWRC.name, Literal(nom_sencer)))
             graph.add((profe_uri, DC.identifier, Literal(nom_complet_html)))
             graph.add((profe_uri, DC.LicenseDocument, Literal(professor.find("dni").text)))
+            graph.add((profe_uri, DC.type, Literal(professor.find("categoria").text)))
+            graph.add((profe_uri, DC.partOf, Literal(professor.find("area_coneixement").text)))
             if not professor.find("assignatures").text == "":
                 for subject in professor.find_all("assignatura"):
                     subject_uri = URIRef(pub_base_uri +"/"+ uri_sub +"/"+ subject.find("codi").text)
                     graph.add((subject_uri, DC.identifier, Literal(subject.find("codi").text)))
-                    graph.add((subject_uri, RDF.type, UNI.Subject))
+                    graph.add((subject_uri, RDF.type, AIISO.Subject))
                     graph.add((subject_uri, RDFS.label, Literal(subject.find("nom").text)))
-                    graph.add((subject_uri, SWRC.carriedOutBy, profe_uri))
+                    if subject.find("responsable").text == "N":
+                        graph.add((profe_uri, AIISO.teaches, subject_uri))
+                    else:
+                        graph.add((subject_uri, AIISO.responsibilityOf, profe_uri))
+                        graph.add((profe_uri, AIISO.responsibleFor, subject_uri))
 
             if not professor.find("telefon").text == "":
                 graph.add((profe_uri, DC.phone, Literal(professor.find("telefon").text)))
@@ -82,8 +128,9 @@ def build_graph():
                 graph.add((profe_uri, DC.office, Literal(professor.find("ubicacio").text)))
 
 
-def get_graph():
-    build_graph()
+def get_graph(path):
+    build_graph(path)
+    build_career_graph(path)
     return graph
 
 if __name__ == "__main__":
