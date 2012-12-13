@@ -144,6 +144,7 @@ def rdfize_congress_paper(pub_dict):
     '''
     Add common InProceedings fields into the RDF graph.
     '''
+    if u"comité" in pub_dict[u"Tipus de participació"].split(" ") or u"Presidència" in pub_dict[u"Tipus de participació"].split(" "): return False;
     rdfize_output_common(pub_dict, "inproceedings")
     pub_uriref = URIRef(pub_base_uri+"/inproceedings/"+pub_dict["Id. GREC"])
 
@@ -260,4 +261,4 @@ def rdfize_pub_list(pub_list):
         else:
             rdfize_contract(pub_dict)
 
-    return graph.serialize(format="n3")
+    return graph.serialize(format="pretty-xml")
