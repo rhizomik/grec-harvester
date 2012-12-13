@@ -71,7 +71,7 @@ def build_career_graph(source_folder):
             if subject.find("tipus").text == "T":
                 graph.add((subject_uri, DC.type, Literal("Troncal")))
             elif subject.find("tipus").text == "O":
-                graph.add((subject_uri, DC.typel, Literal("Optativa")))
+                graph.add((subject_uri, DC.type, Literal("Optativa")))
             elif subject.find("tipus").text == "B":
                 graph.add((subject_uri, DC.type, Literal("Obligatòria")))
             elif subject.find("tipus").text == "L":
