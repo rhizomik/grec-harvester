@@ -93,7 +93,7 @@ def build_graph(path):
 
     for professor in prof_list:
         if not professor.find("nom").text == "null":
-            nom_sencer = professor.find("nom").text +" "+ professor.find("cognoms").text
+            nom_sencer = professor.find("cognoms").text + ", " + professor.find("nom").text
             nom_n = "".join([nom[0]+"." for nom in professor.find("nom").text.split(" ")])
             cognom_n = professor.find("cognoms").text.split(" ")[0]
             nom_complet =  cognom_n +", "+ nom_n
