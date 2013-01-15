@@ -94,7 +94,7 @@ def build_graph(path):
     for professor in prof_list:
         if not professor.find("nom").text == "null":
             nom_sencer = professor.find("cognoms").text + ", " + professor.find("nom").text
-            nom_n = "".join([nom[0]+"." for nom in professor.find("nom").text.split(" ")])
+            nom_n = "".join([nom[0]+"." for nom in professor.find("nom").text.strip().split(" ")])
             cognom_n = professor.find("cognoms").text.split(" ")[0]
             nom_complet =  cognom_n +", "+ nom_n
             nom_complet_html = htmlize_string(cognom_n +", "+ nom_n)
@@ -103,6 +103,7 @@ def build_graph(path):
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))
             graph.add((profe_uri, SWRC.name, Literal(nom_sencer)))
             graph.add((profe_uri, DC.identifier, Literal(nom_complet_html)))
+            graph.add((profe_uri, DC.initial, Literal(nom_complet_html[0])))
             graph.add((profe_uri, DC.LicenseDocument, Literal(professor.find("dni").text)))
             graph.add((profe_uri, DC.type, Literal(professor.find("categoria").text)))
             graph.add((profe_uri, DC.partOf, Literal(professor.find("area_coneixement").text)))
@@ -117,6 +118,7 @@ def build_graph(path):
                     else:
                         graph.add((subject_uri, AIISO.responsibilityOf, profe_uri))
                         graph.add((profe_uri, AIISO.responsibleFor, subject_uri))
+                        graph.add((profe_uri, AIISO.teaches, subject_uri))
 
             if not professor.find("telefon").text == "":
                 graph.add((profe_uri, DC.phone, Literal(professor.find("telefon").text)))
