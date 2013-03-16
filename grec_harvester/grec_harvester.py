@@ -125,7 +125,7 @@ def normalize_author_list(string):
 def get_pubs_quantity(soup):
     '''Get the number of publications and pages in a BS4 object'''
     max_posts = int(soup.find("p", {"class": "consultac"}).text.split(":")[1].strip())
-    posts_per_page = len(soup.find_all("p", {"class": "llista"}))
+    posts_per_page = len(soup.find_all("div", {"class": "llista"}))
     max_pages = int(math.ceil(max_posts / float(posts_per_page)))
     return max_posts, max_pages
     
