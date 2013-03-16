@@ -165,7 +165,7 @@ def get_pub_list_from_link(link):
         print u"Getting data from page "+ str(page)
         link = link.replace(re.findall("&PAG=.*", link).pop(), "&PAG="+ str(page))
         pub_page = get_soup_from_url(link)
-        for pub in pub_page.find_all("p", {"class": "llista"}):
+        for pub in pub_page.find_all("div", {"class": "llista"}):
             publication_list.append(get_publication_dict(clean_href(pub.find("a")["href"])))
     return publication_list
 
