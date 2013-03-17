@@ -144,7 +144,7 @@ def get_publication_dict(pub_url):
                 elif titol == u"Convocatòria" or titol == u"Organisme" or titol == u"Data":
                     pub_dict[titol] = remove_last_char(item.next_element.next_element.strip())
                 elif titol == "Equip investigador":
-                    res_list = [normalize_author_name(nom.next_element.strip()) for nom in item.parent.find_all("a", {"class":"inves"})]
+                    res_list = [normalize_author_name(nom.next_element.strip()) for nom in item.parent.find_all("a")]
                     pub_dict["Investigador principal"] = res_list[0]
                     pub_dict["Investigadors secundaris"] = res_list[1:]
                 else:
