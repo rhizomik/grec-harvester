@@ -51,7 +51,7 @@ def build_career_graph(source_folder):
     file_list.pop(file_list.index("dept.xml"))
 
     for fitxer in file_list:
-        soup = BeautifulSoup(open(source_folder+fitxer), "lxml", from_encoding="UTF8")
+        soup = BeautifulSoup(open(source_folder+fitxer), "lxml", from_encoding="iso-8859-1")
 
         nom_carrera = soup.find("pla").find("nom").text
         codi_carrera = soup.find("pla").find("codi").text
@@ -82,7 +82,7 @@ def build_career_graph(source_folder):
             graph.add((subject_uri, TEACH.studyProgram, carrera_uri))
 
 def build_graph(path):
-    soup = BeautifulSoup(open(path+"dept.xml"), "lxml", from_encoding="UTF8")
+    soup = BeautifulSoup(open(path+"dept.xml"), "lxml", from_encoding="iso-8859-1")
 
     dept_uri = URIRef(pub_base_uri+"/dept/"+soup.find("departament").find("codi").text)
     graph.add((dept_uri, RDF.type, AIISO.Department))
