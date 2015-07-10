@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from rdflib import Namespace, URIRef, Literal, RDF
+from rdflib import Namespace, URIRef, Literal, RDF, ConjunctiveGraph
 
 import teaching_rdfizer
 
@@ -19,7 +19,7 @@ TEACH = Namespace("http://linkedscience.org/teach/ns#")
 #END GLOBAL VARS
 
 # Create the RDF Graph
-graph = teaching_rdfizer.get_graph("xmls/")
+graph = ConjunctiveGraph()
 graph.bind("dc", DC)
 graph.bind("rdfs", RDFS)
 graph.bind("swrc", SWRC)
@@ -258,7 +258,7 @@ def rdfize_pub_list(pub_list):
             rdfize_european_project(pub_dict)
         elif pub_dict.has_key(u"Número de registre"):
             rdfize_patent(pub_dict)
-        else:
+        elif pub_dict.has_key(u"Codi oficial"):
             rdfize_contract(pub_dict)
 
     return graph.serialize(format="pretty-xml")

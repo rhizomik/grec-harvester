@@ -7,6 +7,7 @@ from rdflib import Namespace, URIRef, Literal, RDF
 from bs4 import BeautifulSoup
 
 import unicodedata
+import argparse
 
 #GLOBAL VARS
 pub_base_uri = "http://www.diei.udl.cat"
@@ -136,5 +137,15 @@ def get_graph(path):
     return graph
 
 if __name__ == "__main__":
-    build_graph()
-    print graph.serialize(format="pretty-xml")
+    parser = argparse.ArgumentParser(description="Script to convert XML documents retrieved using udl_xml_retriever.py into RDF")
+    parser.add_argument("-f", "--file",
+                        help="Name of the file where the output will be written",
+                        type=str,
+                        required=True)
+    args = parser.parse_args()
+
+    graph = get_graph("xmls/")
+    f = open(args.file, "w")
+    f.write(graph.serialize(format="pretty-xml"))
+    print "Output written to " + f.name
+    f.close()
