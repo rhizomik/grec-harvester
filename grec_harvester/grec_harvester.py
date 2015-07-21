@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from bs4 import BeautifulSoup
-
 import urllib2
-import simplejson
 import re
 import math
 import argparse
+
+from bs4 import BeautifulSoup
+import simplejson
+
+from settings import grec_source
 
 
 def clean_pub_title(string):
@@ -181,20 +183,21 @@ def get_all_pubs_from_link_list(link_list):
     return publication_list
 
 
-def get_pubs_by_row_name(row_name, offset):
+def get_pubs_by_row_name(source, row_name, offset):
     '''Retrieve all the publications by the row title'''
-    url_obj = u'http://webgrec.udl.es/cgi-bin/DADREC/crcx1.cgi?PID=312186&IDI=CAT&FONT=3&QUE=CRXD&CRXDCODI=1605&CONSULTA=Fer+la+consulta'
-    print "Getting DIEI data from GREC website"
-    soup = get_soup_from_url(url_obj)
+    print "Getting data from GREC website: "+source
+    soup = get_soup_from_url(source)
     link_list = get_links_in_row(soup, row_name, offset)
     return get_all_pubs_from_link_list(link_list)
 
 
 if __name__ == '__main__': # pragma: no cover
-    parser = argparse.ArgumentParser(description="Little script for scraping data on DIEI GREC website")
+    parser = argparse.ArgumentParser(description="Little script for scraping data on DIEI GREC website.")
     parser.add_argument("rowtitle",
         metavar = "\"title\"",
-        help = "The row title (list) that you want to scrap data",
+        help = """A list of the title of the rows in GREC to scrap from, currently:
+        "Publicacions en revistes" "Publicacions en llibres" "Contribucions a Congressos"
+        "Tesis, tesines i treballs de recerca" "Patents, Programari i Bases de dades" """,
         type = str,
         nargs = "+")
     parser.add_argument("-t","--type",
@@ -207,14 +210,14 @@ if __name__ == '__main__': # pragma: no cover
         type=str,
         required=True)
     parser.add_argument("-o", "--offset",
-        help="Number of years to parse. (0 for all years)",
+        help="Number of last years to parse, all years if omitted",
         type=int,
         default=0,
         required=False)
     args = parser.parse_args()
 
     for row_title in args.rowtitle:
-        pubs = get_pubs_by_row_name(row_title, args.offset)
+        pubs = get_pubs_by_row_name(grec_source, row_title, args.offset)
         f = open(args.file, "w")
         if args.type == "json":
             f.write(simplejson.dumps(pubs, ensure_ascii = False).encode("utf8"))
