@@ -124,6 +124,9 @@ def build_graph(path):
             if not professor.find("telefon").text == "":
                 graph.add((profe_uri, DC.phone, Literal(professor.find("telefon").text)))
 
+            if not professor.find("email").text == "":
+                graph.add((profe_uri, SWRC.email, Literal(professor.find("email").text)))
+
             if not professor.find("web").text == "":
                 graph.add((profe_uri, DC.website, Literal(professor.find("web").text)))
 
