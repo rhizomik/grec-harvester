@@ -4,6 +4,8 @@
 from rdflib.graph import ConjunctiveGraph
 from rdflib import Namespace, URIRef, Literal, RDF
 
+from SPARQLWrapper import SPARQLWrapper2, JSON
+
 from bs4 import BeautifulSoup
 
 import unicodedata
@@ -30,6 +32,34 @@ graph.bind("aiiso", AIISO)
 graph.bind("teach", TEACH)
 # End create RDF Graph
 
+query_template = """
+    SELECT (COUNT(?s) AS ?n)
+    FROM <http://www.diei.udl.cat/>
+    WHERE {{
+        ?s ?p <{uri}>
+    }}
+"""
+sparql = SPARQLWrapper2("http://omediadis.udl.cat:8890/sparql")
+sparql.setReturnFormat(JSON)
+
+def pickProperLabel(nom, cognom):
+    labels = {cognom + ", " + nom, cognom + ", " + nom.split(".")[0] + ".", cognom + ", " + nom.split(".")[1] + "."}
+    print u"Options: " + "; ".join(labels)
+    max_count = 0
+    pickedLabel = cognom + ", " + nom
+    for label in labels:
+        sparql.setQuery(query_template.format(uri=pub_base_uri + "/" + uri_person + "/" + htmlize_string(unicode(label))))
+        results = sparql.query().convert()
+        if (u"n") in results:
+            bindings = results[u"n"]
+            count = int(bindings[0][u"n"].value)
+            print u"Label: {}; count: {}".format(label, count)
+            if count > max_count:
+                pickedLabel = label
+                max_count = count
+    print u"Selected label: {}".format(pickedLabel)
+    return pickedLabel
+
 def remove_accents(s):
     '''Quits accents and language specific characters of a string'''
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
@@ -53,7 +83,7 @@ def build_career_graph(source_folder):
 
     for fitxer in file_list:
         soup = BeautifulSoup(open(source_folder+fitxer), "lxml", from_encoding="iso-8859-1")
-
+        print "Processing XML file: {}".format(fitxer)
         nom_carrera = soup.find("pla").find("nom").text
         codi_carrera = soup.find("pla").find("codi").text
 
@@ -97,8 +127,11 @@ def build_graph(path):
             nom_sencer = professor.find("cognoms").text + ", " + professor.find("nom").text
             nom_n = "".join([nom[0]+"." for nom in professor.find("nom").text.strip().split(" ")])
             cognom_n = professor.find("cognoms").text.split(" ")[0]
-            nom_complet =  cognom_n +", "+ nom_n
-            nom_complet_html = htmlize_string(cognom_n +", "+ nom_n)
+            if len(nom_n) > 2:
+                nom_complet = pickProperLabel(nom_n, cognom_n)
+            else:
+                nom_complet = cognom_n + ", " + nom_n
+            nom_complet_html = htmlize_string(nom_complet)
             profe_uri = URIRef(pub_base_uri +"/"+ uri_person +"/"+ nom_complet_html)
             graph.add((profe_uri, RDF.type, SWRC.AcademicStaff))
             graph.add((profe_uri, RDFS.label, Literal(nom_complet)))

@@ -1,3 +1,4 @@
+SPARQLWrapper
 Unidecode==0.04.9
 argparse==1.2.1
 beautifulsoup4==4.1.1
